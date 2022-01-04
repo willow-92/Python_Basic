@@ -64,6 +64,13 @@ print("7. ", re.sub('[^0-9]','', num))
 # 8. 다음 문자열(URL)에서 "http://" 부분을 제거 후 출력하세요. : "http://daum.net"
 url = 'http://daum.net'
 print('8. ', url.replace('http://',''))
+print('8. ', url[7:])
+url_index = url.index('daum')
+print('8 ', url[url_index:])
+import re 
+print('8, ', re.sub('^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$', '',url))
+# 다양한 방식으로 표현이 가능함. 
+
 
 # 9. 다음 문자열을 모두 대문자, 소문자로 각각 출력해보세요. : "NiceMan"
 a = 'NiceMan'

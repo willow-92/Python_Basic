@@ -54,7 +54,3 @@ pag.press('enter')
 time.sleep(0.5)
 pag.typewrite("code")
 pag.press('enter')
-
-# print('f11을 눌렀습니다')
-# pyautogui.press('capslock')
-# print('capslock을 눌렀습니다')

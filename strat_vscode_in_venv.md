@@ -6,21 +6,42 @@
 - 가장 익숙한 형태인 macro를 사용하여 cmd에서 가상환경 내 vscode를 실행하도록 세팅 해 두었음
 - 파이썬에서 macro를 실행하도록 코드를 작성
 
-'''
-import subprocess
-subprocess.call(["D:\\Users\\anseilen\\Downloads\\key_macro (2).exe"])
-'''
+```
+    import subprocess
+    subprocess.call(["D:\\Users\\anseilen\\Downloads\\key_macro (2).exe"])
+```
 
 이후 pyautogui 라이브러리를 사용하여 방금 만든 macro를 실행시키려고 시도함
 그러나 동작하지 않음
 
-'''
-import pyautogui
-import pygetwindow as gw 
-win = gw.getWindowsWithTitle('키보드') 
-win.activate()
-pyautogui.press('f11')
-pyautogui.press('capslock')
-'''
+```
+    import pyautogui
+    import pygetwindow as gw 
+    win = gw.getWindowsWithTitle('키보드') 
+    win.activate()
+    pyautogui.press('f11')
+    pyautogui.press('capslock')
+```
 
 관련 내용은 다른 기회에 확인이 필요함
+
+```
+time. sleep(숫자)
+```
+해당 코드를 통해서 시간 지연을 추가할 수 있음. 타임 라이브러리는 따로 불러와야 함
+키보드 입력 방식으로 진행이 어려울 경우 마우스 클릭하는 방법 또한 고려해 볼 필요가 있음 -> 일단 1차적 문제 해결 완료
+
+01.11
+다른 방식을 찾아보다가 성공
+리스트 파일 형태로 [0]을 입력해주었어야 했는데 빠져 있어서 발생한 문제
+내일은 스케쥴러에 파이썬 스크립트를 실행하도록 넣어주고 추가 테스트 진행해볼 필요가 있음.
+
+
+01.12
+매크로가 시작되면 매번 설정이 달라지는 문제가 발생
+CMD에서 바로 타이핑을 할 수 있는 방법을 시도
+
+01.13
+매크로를 사용하지 않고 pyauto를 사용하여 직접 매크로를 코드로 작성.
+CMD 파일을 불러와서 타이핑을 하는 매크로를 작성함
+exe 파일로 변환 후 스케쥴러에 저장하여 venv 환경에서 vscode를 실행하는데 성공함!

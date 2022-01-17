@@ -1,3 +1,52 @@
+# 112
+# 사용자로부터 하나의 숫자를 입력받고, 입력 받은 숫자에 10을 더해 출력하라.
+
+# >> 숫자를 입력하세요: 30
+# 40
+
+# 정답지
+# user = input("숫자를 입력하세요: ")
+# print(10 + int(user))
+# 정답지에서는 유저사 문자열을 넣을 상황에 대한 대비를 하지 않았음
+
+# 2차 시도 : 성공
+# num = input("숫자를 입력하세요 : ")
+# while True:
+#     try:
+#         print(int(num)+10)
+#         break
+#     except ValueError:
+#         try:
+#             print(float(num)+10)
+#             break       
+#         except ValueError:
+#                 num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
+
+
+# 1차 시도 실패
+# from distutils.log import error
+    # if int(num) == error("숫자를 입력하세요") or float(num) == error():
+    #     num(input("숫자를 입력하세요 : "))
+    # elif int(num) == type(int): 
+    #     print(int(num) + 10)
+    #     break
+    # elif float(num) == float(int): 
+    #     print(float(num) + 10)
+    #     break
+    # else: 
+    #     num = input("숫자를 입력하세요 : ")
+
+    
+
+# # 111
+# # 사용자로부터 입력받은 문자열을 두 번 출력하라. 아래는 사용자가 "안녕하세요"를 입력한 경우의 출력 결과이다.
+
+# # >> 안녕하세요
+# # 안녕하세요안녕하세요
+
+# word = input(str("아무 글자나 입력하세요 : ㅇ"))
+# print (word*2)
+
 # 110
 # if True :
 #     if False:
@@ -75,7 +124,6 @@
 # 101
 # 파이썬에서 True 혹은 False를 갖는 데이터 타입은 무엇인가?
 # Bool type
-
 
 # # 100 zip과 dict
 # # date와 close_price 두 개의 리스트를 close_table 이름의 딕셔너리로 생성하라.

@@ -1,24 +1,38 @@
 # 113
 # 사용자로부터 하나의 숫자를 입력 받고 짝수/홀수를 판별하라.
+
 num = input("숫자를 입력하세요 : ")
 while True:
     try:
-        if int(num) % 2 == 1 :
+        if float(num) % 2 == 1 :
             print("홀수입니다")
         else:
             print("짝수입니다")
         break
     except ValueError:
-        try:
-            if float(num) % 0.2 == 0.1 :
-                print("홀수입니다")
-            else:
-                print("짝수입니다")
-            break       
-        except ValueError:
-                num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
-# >> 30
-# 짝수
+            num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
+
+
+# float 부분 리트라이
+# num = input("숫자를 입력하세요 : ")
+# while True:
+#     try:
+#         if int(num) % 2 == 1 :
+#             print("홀수입니다")
+#         else:
+#             print("짝수입니다")
+#         break
+#     except ValueError:
+#         try:
+#             if int(float(num)) % 2 == 1 :
+#                 print("홀수입니다")
+#             else:
+#                 print("짝수입니다")
+#             break       
+#         except ValueError:
+#                 num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
+# # >> 30
+# # 짝수
 
 
 # 112

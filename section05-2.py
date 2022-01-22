@@ -120,15 +120,69 @@ for n in name:
 # 구지 붙이지 않아도 되는 부분인데 붙었음.  
 # 개선하면 아래와 같음
 
-upper = []
+# upper = []
 
-for i in name:
-    if i.isupper():
-        upper.append(i.lower())
+# for i in name:
+#     if i.isupper():
+#         upper.append(i.lower())
+#     else:
+#         upper.append(i.upper())
+# print("".join(upper))
+
+
+# 33 찾는 코드 (직접)
+cnt = 0
+# break
+numbers = [14, 3, 4, 7, 10, 24, 17, 2, 37, 15, 34, 36, 38]
+for i in numbers:
+    cnt+= 1
+    if i == 33:
+        break
+print("찾는 숫자의 위치는 = ", cnt,"번째")
+
+# 33 찾는 코드 (강의)
+for num in numbers:
+    if num == 33:
+        print("found : 33!")
+        break
     else:
-        upper.append(i.upper())
-print("".join(upper))
+        print("not found 33!")
+
+# for 문의 특수한 문법. for 문에도 else가 있음. for -else 구문
+for num in numbers:
+    if num == 33:
+        print("found : 33!")
+        break
+    else:
+        print("not found 33!")
+
+else: 
+    print("not found 33...")
 
 
-    
+# for문의 break가 작동했을 경우에는 else가 작동하지 않고, break가 작동하지 않으면 else가 작동함
+# 반복문이 정상적으로 수행 된 경우 else 블럭 수행
+# break가 들어갔다는 것은 정상적으로 수행되지 않은 것이기 때문에 else가 수행되지 않음
 
+
+# continue
+lt = ["1", 2, 5, True, 4.3, complex(4)]
+# 하나의 리스트에 여러가지 데이터 타입을 넣을 수 있음. 상당히 유연함
+# 이 리스트 안에 실수형이 있는지 찾고 싶다면? 어떻게 찾을까? 
+
+# 직접
+for i in lt:
+    if type(i) == float:
+        print("exist")
+
+# float형태를 제외한 나머지를 출력하고 싶다면?
+for i in lt:
+    if type(i) is float:
+        continue
+    print(type(i), i)
+
+# 컨티뉴를 만나면 바로 다음 순회할 값으로 이동을 한다.
+# 컨티뉴를 만나면 하위 부분은 실행하지 않음. 
+
+name = "Niceman"
+print(list(reversed(name)))

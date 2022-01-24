@@ -73,20 +73,45 @@ if num[0] == "1" or num[0] == "3":
     print("남자")
 
 
-# 6 ~ 10 반복문 사용(while 또는 for)
+# 6 ~ 10 반복문 사용(while 또는 for) 
 
-# 6. 다음 리스트 중에서 '정' 글자를 제외하고 출력하세요.
-q3 = ["갑", "을", "병", "정"]
+# 6. 다음 리스트 중에서 '정' 글자를 제외하고 출력하세요. 
+q3=["갑","을", "병","정"]
+print(q3)
+for char in q3:
+  if char == '정' :
+    continue
+    print(char)
 
-# 7. 1부터 100까지 자연수 중 '홀수'만 한 라인으로 출력 하세요.
-
-
-# 8. 아래 리스트 항목 중에서 5글자 이상의 단어만 출력하세요.
-q4 = ["nice", "study", "python", "anaconda", "!"]
-
-# 9. 아래 리스트 항목 중에서 소문자만 출력하세요.
-q5 = ["A", "b", "c", "D", "e", "F", "G", "h"]
-
-
-# 10. 아래 리스트 항목 중에서 소문자는 대문자로 대문자는 소문자로 출력하세요.
-q6 = ["A", "b", "c", "D", "e", "F", "G", "h"]
+ ​# 7. 1부터 100까지 자연수 중 '홀수'만 한 라인으로 출력 하세요. 
+ line = []
+for i in range (1,100):
+  if i %2 == 0:	
+  		continue
+  		line.append(i)
+print(i)  		
+  
+ ​# 8. # 6 ~ 10 반복문 사용(while 또는 for) 
+  
+  
+ ​# 8. 아래 리스트 항목 중에서 5글자 이상의 단어만 출력하세요. 
+ ​q4​ ​=​ [​"nice"​, ​"study"​, ​"python"​, ​"anaconda"​, ​"!"​]
+ for word in q4:
+  if len(word)>=5:
+  	print(word)
+  
+ ​# 9. 아래 리스트 항목 중에서 소문자만 출력하세요. 
+ ​q5​ ​=​ [​"A"​, ​"b"​, ​"c"​, ​"D"​, ​"e"​, ​"F"​, ​"G"​, ​"h"​] 
+for char in q5:
+  if islower(char) = True:
+  	print(char)
+  
+  
+  
+ ​# 10. 아래 리스트 항목 중에서 소문자는 대문자로 대문자는 소문자로 출력하세요. 
+ ​q6​ ​=​ [​"A"​, ​"b"​, ​"c"​, ​"D"​, ​"e"​, ​"F"​, ​"G"​, ​"h"​]
+ for word in q6:
+ 	if islower(word) = True:
+ 		print(word.upper())
+ 	else:
+ 		print(word.lowrr())	

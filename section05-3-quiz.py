@@ -36,10 +36,41 @@ else:
 # 21 ~ 40 :  D학점
 #  0 ~ 20 :  E학점
 
-# 4. 다음 세 개의 숫자 중 가장 큰수를 출력하세요.(if문 사용) : 12, 6, 18
 
+# score = int(input("점수를 입력하세요 : "))
+score = 47
+if score >= 81:
+    print("A학점")
+elif score >= 61:
+    print("B학점")
+elif score >= 41:
+    print("C학점")
+elif score >= 21:
+    print("D학점")
+else :
+    print("E학점")
+
+
+# 4. 다음 세 개의 숫자 중 가장 큰수를 출력하세요.(if문 사용) : 12, 6, 18
+a = 12
+b = 6
+c = 18
+if a > b and a > c:
+    print("가장 큰 숫자는?", a)
+elif b > a and b > c:
+    print("가장 큰 숫자는?", b)
+else:
+    print("가장 큰 숫자는?", c)
 
 # 5. 다음 주민등록 번호에서 7자리 숫자를 사용해서 남자, 여자를 판별하세요. (1,3 : 남자, 2,4 : 여자)
+
+num = str(2468734)
+print(num)
+print(num[0])
+if num[0] == "2" or num[0] == "4":
+    print("여자")
+if num[0] == "1" or num[0] == "3":
+    print("남자")
 
 
 # 6 ~ 10 반복문 사용(while 또는 for)

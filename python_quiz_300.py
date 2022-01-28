@@ -1,27 +1,68 @@
-'''
-115
-사용자로부터 하나의 값을 입력받은 후 해당 값에 20을 뺀 값을 출력하라. 단 출력 값의 범위는 0~255이다. 예를 들어 결괏값이 0보다 작은 값이되는 경우 0을 출력하고 255보다 큰 값이 되는 경우 255를 출력해야 한다.
->> 입력값: 200
-출력값: 180
->> 입력값: 15
-출력값: 0
-'''
+# 116
+# 사용자로부터 입력 받은 시간이 정각인지 판별하라.
 
-num = int(input("정수를 입력하세요 : "))
+# >> 현재시간:02:00
+# 정각 입니다.
+# >> 현재시간:03:10
+# 정각이 아닙니다
+
+
+print("시간과 분을 차례대로 입력하세요. 단, 정수만 입력 하세요")
 while True:
-    a = num - 20
-    try:
-        if a > 255:
-            print('입력한 값 :', num, "출력값 : ", 255)
-            break
-        elif a < 0:
-            print('입력한 값 : ', num, "출력값 : ", 0)
-            break
-        else:
-            print('입력한 값 : ', num, "출력값 : ", a)
-            break
+    try: 
+        hour = int(input("현재 몇 시 입니까? ('시간'만 입력. ex) 오전 9시 = 9, 오후 3시 = 15) : "))
+        hour = str(hour)
+        break   
     except ValueError:
-        num = int(input("정수가 아닙니다. 정수를 입력해주세요 : "))
+        hour = int(input("정수를 입력하지 않았습니다. 현재 시간은 몇 시 입니까? ('시간'만 입력. ex) 오전 9시 = 9, 오후 3시 = 15) : "))
+while True:
+    try: 
+        min = int(input("현재 몇 분 입니까? ('분'만 입력. ex) 3시 30분 = 30, 5시 9분 = 9 : ")) 
+        min = str(min)
+        break   
+    except ValueError:
+        min = int(input("정수를 입력하지 않았습니다. 현재 몇 분 입니까? ('분'만 입력. ex) 3시 30분 = 30, 5시 9분 = 9 : "))
+
+if len(hour)<2:
+    str_hour = "0" + hour
+else: str_hour = hour
+
+if len(min)<2:
+    str_min = "0" + min
+else: str_min = min
+
+if str_min == "00" or str_min == "0" :
+    print("현재시간 :", str_hour+"시", str_min+"분 정각입니다.")
+else: 
+    print("현재시간 :", str_hour+"시", str_min+"분 정각이 아닙니다.")
+
+
+
+# '''
+# 115
+# 사용자로부터 하나의 값을 입력받은 후 해당 값에 20을 뺀 값을 출력하라. 단 출력 값의 범위는 0~255이다. 예를 들어 결괏값이 0보다 작은 값이되는 경우 0을 출력하고 255보다 큰 값이 되는 경우 255를 출력해야 한다.
+# >> 입력값: 200
+# 출력값: 180
+# >> 입력값: 15
+# 출력값: 0
+# '''
+
+# num = int(input("정수를 입력하세요 : "))
+# while True:
+#     a = num - 20
+#     try:
+#         if a > 255:
+#             print('입력한 값 :', num, "출력값 : ", 255)
+#             break
+#         elif a < 0:
+#             print('입력한 값 : ', num, "출력값 : ", 0)
+#             break
+#         else:
+#             print('입력한 값 : ', num, "출력값 : ", a)
+#             break
+#     except ValueError:
+#         num = int(input("정수가 아닙니다. 정수를 입력해주세요 : "))
+
 
 # 114
 # 사용자로부터 값을 입력받은 후 해당 값에 20을 더한 값을 출력하라. 단 사용자가 입력한 값과 20을 더한 계산 값이 255를 초과하는 경우 255를 출력해야 한다.
@@ -32,16 +73,16 @@ while True:
 # 출력값: 255
 # 정답확인
 
-num = input("숫자를 입력하세요 : ")
-while True:
-    try:
-        a = float(num) + 20
-        if a > 255:
-            print(255)
-        print(a)
-        break
-    except ValueError:
-        num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
+# num = input("숫자를 입력하세요 : ")
+# while True:
+#     try:
+#         a = float(num) + 20
+#         if a > 255:
+#             print(255)
+#         print(a)
+#         break
+#     except ValueError:
+#         num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
 
 
 # 113

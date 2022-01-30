@@ -1,3 +1,27 @@
+# 117
+# 사용자로 입력받은 단어가 아래 fruit 리스트에 포함되어 있는지를 확인하라. 포함되었다면 "정답입니다"를 아닐 경우 "오답입니다" 출력하라.
+
+# fruit = ["사과", "포도", "홍시"]
+# >> 좋아하는 과일은? 사과
+# 정답입니다.
+
+# 더 짧은 코드
+# fruit_name = input("과일을 이름을 입력하세요 : ")
+# if fruit_name in fruit:
+#     print("정답입니다")
+# else:
+#     print("오답입니다")
+
+
+# for 문을 안 쓰고도 확인하는 방법이 있었음.
+# fruit_name = input("과일을 이름을 입력하세요 : ")
+# for word in fruit :
+#     if word == fruit_name:
+#         print("정답입니다")
+#         break
+# else:
+#     print("오답입니다")
+
 # 116
 # 사용자로부터 입력 받은 시간이 정각인지 판별하라.
 
@@ -7,19 +31,19 @@
 # 정각이 아닙니다
 
 # 단축시킨 코드
-import re
-check = '^([1-9]|[01][0-9]|2[0-3]):([0-5][0-9])$'
-while True:
-    time = input("시간과 분을 입력하세요 예) 09:30, 15:25 : ")
-    t = re.match(check, time)
-    if t == None:
-        print("입력이 잘 못 되었습니다. 형식에 맞게 입력해주세요 예 09:07.  내가 입력한 값: ", time)
-    else:
-        break    
-if time[-2:] == "00":
-    print("내가 입력한 값 :", time, "| 정각입니다.")
-else:
-    print("내가 입력한 값 :", time, "| 정각이 아닙니다")
+# import re
+# check = '^([1-9]|[01][0-9]|2[0-3]):([0-5][0-9])$'
+# while True:
+#     time = input("시간과 분을 입력하세요 예) 09:30, 15:25 : ")
+#     t = re.match(check, time)
+#     if t == None:
+#         print("입력이 잘 못 되었습니다. 형식에 맞게 입력해주세요 예 09:07.  내가 입력한 값: ", time)
+#     else:
+#         break    
+# if time[-2:] == "00":
+#     print("내가 입력한 값 :", time, "| 정각입니다.")
+# else:
+#     print("내가 입력한 값 :", time, "| 정각이 아닙니다")
 
 
 # # 정수 검사

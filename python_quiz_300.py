@@ -1,32 +1,67 @@
-# 118
-# 투자 경고 종목 리스트가 있을 때 사용자로부터 종목명을 입력 받은 후 해당 종목이 투자 경고 종목이라면 '투자 경고 종목입니다'를 아니면 "투자 경고 종목이 아닙니다."를 출력하는 프로그램을 작성하라.
-warn_investment_list = ["Microsoft", "Google", "Naver", "Kakao", "SAMSUNG", "LG"]
+# 119
+# 아래와 같이 fruit 딕셔너리가 정의되어 있다. 사용자가 입력한 값이 딕셔너리 키 (key) 값에 포함되었다면 "정답입니다"를 아닐 경우 "오답입니다" 출력하라.
 
+fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
+# >> 제가좋아하는계절은: 봄
+# 정답입니다.
 
-# 대소문자 구분의 영향을 받지 않도록 모두 대문자로 전처리
-trans_i_list = []
-for ticker in warn_investment_list:
-    trans_i_list.append(ticker.upper())
-    
-# 영문 검사를 위한 정규식 정의
 import re
-check = '(^[a-zA-Z]*$)'
+check = '(^[가-힣]*$)'
 
-# 입력값의 영문 검증
+# 입력값의 국문 검증
 while True:
-    invest = input("투자할 종목을 입력하세요 (종목명은 영문입니다): ")
-    c = re.match(check, invest) 
+    season = input("내가 좋아하는 계절은 무엇일까요? : ")
+    c = re.match(check, season) 
     if c == None :
-        print('잘못 입력하셨습니다. 영문만 입력하세요. 내가 입력한 종목명 :' , invest)
+        print('잘못 입력하셨습니다. 사계절 중 하나만 입력하세요. 내가 입력한 값 :' , season)
         continue
     else:
         break
-        
-# 투자 경고 종목 판별
-if invest.upper() in trans_i_list:
-    print("투자 경고 종목입니다.")
+
+# 내가 짠 코드
+if season in list(fruit.keys()):
+    print("정답입니다")
 else:
-    print("투자 경고 종목이 아닙니다.")
+    print("오답입니다")
+
+# 제시된 정답
+# season = input("제가좋아하는계절은: ")
+# if season in fruit:
+#     print("정답입니다.")
+# else:
+#    print("오답입니다.")
+# 키값에 포함되어 있는지 여부를 확인할 때 딕셔너리의 키 값을 리스트 형태로 넣지 않아도 확인이 가능함
+
+
+# # 118
+# # 투자 경고 종목 리스트가 있을 때 사용자로부터 종목명을 입력 받은 후 해당 종목이 투자 경고 종목이라면 '투자 경고 종목입니다'를 아니면 "투자 경고 종목이 아닙니다."를 출력하는 프로그램을 작성하라.
+# warn_investment_list = ["Microsoft", "Google", "Naver", "Kakao", "SAMSUNG", "LG"]
+
+
+# # 대소문자 구분의 영향을 받지 않도록 모두 대문자로 전처리
+# trans_i_list = []
+# for ticker in warn_investment_list:
+#     trans_i_list.append(ticker.upper())
+    
+# # 영문 검사를 위한 정규식 정의
+# import re
+# check = '(^[a-zA-Z]*$)'
+
+# # 입력값의 영문 검증
+# while True:
+#     invest = input("투자할 종목을 입력하세요 (종목명은 영문입니다): ")
+#     c = re.match(check, invest) 
+#     if c == None :
+#         print('잘못 입력하셨습니다. 영문만 입력하세요. 내가 입력한 종목명 :' , invest)
+#         continue
+#     else:
+#         break
+        
+# # 투자 경고 종목 판별
+# if invest.upper() in trans_i_list:
+#     print("투자 경고 종목입니다.")
+# else:
+#     print("투자 경고 종목이 아닙니다.")
 
 # 117
 # 사용자로 입력받은 단어가 아래 fruit 리스트에 포함되어 있는지를 확인하라. 포함되었다면 "정답입니다"를 아닐 경우 "오답입니다" 출력하라.

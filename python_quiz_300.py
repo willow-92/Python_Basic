@@ -1,30 +1,130 @@
-# 119
-# 아래와 같이 fruit 딕셔너리가 정의되어 있다. 사용자가 입력한 값이 딕셔너리 키 (key) 값에 포함되었다면 "정답입니다"를 아닐 경우 "오답입니다" 출력하라.
+# 122
+# 점수 구간에 해당하는 학점이 아래와 같이 정의되어 있다. 사용자로부터 score를 입력받아 학점을 출력하라.
 
-fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
-# >> 제가좋아하는계절은: 봄
-# 정답입니다.
+# 점수	학점
+# 81~100	A
+# 61~80	B
+# 41~60	C
+# 21~40	D
+# 0~20	E
+# >> score: 83
+# grade is A
 
+# 숫자 입력 검증을 위한 정규식
 import re
-check = '(^[가-힣]*$)'
+check = '(^[\d]*$)'
 
-# 입력값의 국문 검증
-while True:
-    season = input("내가 좋아하는 계절은 무엇일까요? : ")
-    c = re.match(check, season) 
-    if c == None :
-        print('잘못 입력하셨습니다. 사계절 중 하나만 입력하세요. 내가 입력한 값 :' , season)
-        continue
+# 입력값의 숫자 검증
+while True: 
+    score = input("점수를 입력하세요 : ")
+    if re.match(check, score) == None:
+          print("잘 못 입력하셨습니다. 정수만 입력하세요. 내가 입력 값 : ", score)
     else:
         break
 
-# 내가 짠 코드
-if season in list(fruit.keys()):
-    print("정답입니다")
-else:
-    print("오답입니다")
+# 점수 구간 출력
+score = int(score)
+if score < 21 :
+    print("grade is E")
+elif score < 41 :
+    print("grade is D")
+elif score < 61 :
+    print("grade is C")
+elif score < 81 :
+    print("grade is B")
+else :
+    print("grade is A")
 
-# 제시된 정답
+
+
+# 121
+# 사용자로부터 문자 한 개를 입력 받고, 소문자일 경우 대문자로, 대문자 일 경우, 소문자로 변경해서 출력하라.
+# >> a
+# A
+# # 힌트-1 : islower() 함수는 문자의 소문자 여부를 판별합니다. 만약 소문자일 경우 True, 대문자일 경우 False를 반환합니다. 힌트-2 : upper() 함수는 대문자로, lower() 함수는 소문자로 변경합니다.
+
+# # 영문 입력 및 글자수 검증을 위한 정규식
+# import re
+# check = '(^[a-zA-Z]{1}$)'
+
+# # 입력값의 영문 입력 검증
+# while True:
+#     word = input("영문 문자 1개를 입력하세요 : ")
+#     if re.match(check, word) == None:
+#         print("잘 못 입력하셨습니다. 영문 문자 1개만 입력하세요. 내가 입력한 문자 : ", word)
+#     else:
+#         break
+
+# # 입력값의 대소문자 변형
+# if word.lower() == word:
+#     print(word.upper())
+# else:
+#     print(word.lower())
+
+# # 답안지의 코드
+# user = input("")
+# if user.islower():
+#     print(user.upper())
+# else:
+#     print(user.lower())
+# # True의 경우 if 문이 진행되므로 따로 == 기호를 사용하지 않아도 됨
+
+# # 120
+# # 아래와 같이 fruit 딕셔너리가 정의되어 있다. 사용자가 입력한 값이 딕셔너리 값 (value)에 포함되었다면 "정답입니다"를 아닐 경우 "오답입니다" 출력하라.
+# fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
+# # >> 좋아하는과일은? 한라봉
+# # 오답입니다.
+
+# v_fruit = list(fruit.values())
+
+# # 국문 입력 검증을 위한 정규식
+# import re
+# check = '(^[가-힣]*$)'
+
+# # 입력값의 국문 검증
+# while True:
+#     word = input("내가 좋아하는 과일은 무엇일까요? : ")
+#     c = re.match(check, word) 
+#     if c == None :
+#         print('잘못 입력하셨습니다. 한글만 입력하세요. 내가 입력한 값 :' , word)
+#         continue
+#     else:
+#         break
+
+# if word in v_fruit:
+#     print('정답입니다.')
+# else:
+#     print('오답입니다.')
+
+
+
+# # 119
+# # 아래와 같이 fruit 딕셔너리가 정의되어 있다. 사용자가 입력한 값이 딕셔너리 키 (key) 값에 포함되었다면 "정답입니다"를 아닐 경우 "오답입니다" 출력하라.
+
+# fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
+# # >> 제가좋아하는계절은: 봄
+# # 정답입니다.
+
+# import re
+# check = '(^[가-힣]*$)'
+
+# # 입력값의 국문 검증
+# while True:
+#     season = input("내가 좋아하는 계절은 무엇일까요? : ")
+#     c = re.match(check, season) 
+#     if c == None :
+#         print('잘못 입력하셨습니다. 사계절 중 하나만 입력하세요. 내가 입력한 값 :' , season)
+#         continue
+#     else:
+#         break
+
+# # 내가 짠 코드
+# if season in list(fruit.keys()):
+#     print("정답입니다")
+# else:
+#     print("오답입니다")
+
+# # 제시된 정답
 # season = input("제가좋아하는계절은: ")
 # if season in fruit:
 #     print("정답입니다.")

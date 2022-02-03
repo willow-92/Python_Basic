@@ -1,3 +1,43 @@
+# 123
+# 사용자로부터 달러, 엔, 유로, 또는 위안 금액을 입력받은 후 이를 원으로 변환하는 프로그램을 작성하라. 각 통화별 환율은 다음과 같다. 
+# 사용자는 100 달러, 1000 엔, 13 유로, 100 위안과 같이 금액과 통화명 사이에 공백을 넣어 입력한다고 가정한다.
+
+# 통화명	환율
+# 달러	1167
+# 엔	1.096
+# 유로	1268
+# 위안	171
+
+exchange_rate = {'달러' : 1167, '엔' : 1.096 , '유로' : 1268, '위안' : 171}
+
+# 한글, 숫자, 공백 입력 검증을 위한 정규식
+import re
+check = '(^[\d]*[\s]{1}[가-힣]*)'
+
+# 입력값의 검증
+while True:
+    currency = input('환전을 희망하는 금액과 통화를 입력하세요 ex) 100 달러, 1000 엔, 13 유로, 171 위안 (공백에 유의하세요) : ')
+    if re.match(check, currency) == None:
+        print("잘 못 입력하셨습니다. 형식에 맞게 입력하세요. 내가 입력 값 : ", currency)
+    else:
+        break
+
+# 금액과 통화를 추출
+exchange_num = int(re.sub('[^0-9]', "", currency))
+exchange_str = re.sub('[^가-힣]', "", currency)
+
+# 환전
+if exchange_str in exchange_rate:
+    exchanged = exchange_rate.get(exchange_str) * exchange_num
+    print(currency+'(을)를 원화로 환전하면', str(format(exchanged,',')) + ' 원 입니다')
+
+else:
+    print('지원하지 않는 통화입니다')
+
+
+# print('환전 희망 통화 및 금액은', currency, '이고 환전 금액은' )
+
+
 # 122
 # 점수 구간에 해당하는 학점이 아래와 같이 정의되어 있다. 사용자로부터 score를 입력받아 학점을 출력하라.
 
@@ -10,30 +50,30 @@
 # >> score: 83
 # grade is A
 
-# 숫자 입력 검증을 위한 정규식
-import re
-check = '(^[\d]*$)'
+# # 숫자 입력 검증을 위한 정규식
+# import re
+# check = '(^[\d]*$)'
 
-# 입력값의 숫자 검증
-while True: 
-    score = input("점수를 입력하세요 : ")
-    if re.match(check, score) == None:
-          print("잘 못 입력하셨습니다. 정수만 입력하세요. 내가 입력 값 : ", score)
-    else:
-        break
+# # 입력값의 숫자 검증
+# while True: 
+#     score = input("점수를 입력하세요 : ")
+#     if re.match(check, score) == None:
+#           print("잘 못 입력하셨습니다. 정수만 입력하세요. 내가 입력 값 : ", score)
+#     else:
+#         break
 
-# 점수 구간 출력
-score = int(score)
-if score < 21 :
-    print("grade is E")
-elif score < 41 :
-    print("grade is D")
-elif score < 61 :
-    print("grade is C")
-elif score < 81 :
-    print("grade is B")
-else :
-    print("grade is A")
+# # 점수 구간 출력
+# score = int(score)
+# if score < 21 :
+#     print("grade is E")
+# elif score < 41 :
+#     print("grade is D")
+# elif score < 61 :
+#     print("grade is C")
+# elif score < 81 :
+#     print("grade is B")
+# else :
+#     print("grade is A")
 
 
 

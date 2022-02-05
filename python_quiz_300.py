@@ -1,39 +1,184 @@
-# 124 
-# 사용자로부터 세 개의 숫자를 입력 받은 후 가장 큰 숫자를 출력하라.
+# # 127
+# # 주민등록번호 뒷 자리 7자리 중 첫째 자리는 성별을 나타내는데, 1, 3은 남자 2, 4는 여자를 의미한다. 
+# # 사용자로부터 13자리의 주민등록번호를 입력 받은 후 성별 (남자, 여자)를 출력하는 프로그램을 작성하라.
 
-# >> input number1: 10
-# >> input number2: 9
-# >> input number3: 20
-# 20
+# # >> 예시 - 주민등록번호: 821010-1635210
+# # 남자
 
-while True:
-    num1 = input('첫 번째 정수를 입력하세요 : ')
-    num2 = input('두 번째 정수를 입력하세요 : ')
-    num3 = input('세 번째 정수를 입력하세요 : ')
-    try :
-        num1 = int(num1)
-        num2 = int(num2)
-        num3 = int(num3)
-        break
+# # 주민등록번호에는 각 숫자에 대응하는 가중치가 있고, 값에 따라 유효성을 검증하기 위한 규칙이 있다는 것을 알게 됨
+# # 문제에서 입력값의 형태를 지정하였으므로, 입력값의 형식에 맞게 입력했는지 검증하고, 주민등록번호의 유효성을 검사하기로 함.
+# # 가중치는 주민등록번호의 순서에 따라 2 3 4 5 6 7 8 9 2 3 4 5 라고 함
+# # 먼저 마지막 숫자는 제외하고, 기본코드의 각 12자리와 가중치를 모두 곱하여 합하여야 함
+# # 합한 값을 11로 나눈 나머지 값을 구해야 함
+# # 11에서 그 나머지 값을 뺀 후, 이를 10을 나눈 나머지를 구해야 함
+# # 나머지의 1의 자리 값과 주민등록번호 마지막 자리 값이 맞아야 유효한 주민등록번호이다.
 
-    except ValueError:
-        print('잘못된 값을 입력하였습니다. 내가 입력한 값:\n1 번: [', num1, ']\n2 번: [', num2,']  \n3 번: [', num3,']')
+# # 가중치 정의
+# weighted_num = '234567892345'
+# total = 0
 
-if num1 > num2 and num1 > num3:
-    print('가장 큰 숫자는 : ', num1)
-elif num2 > num1 and num2 > num3:
-    print('가장 큰 숫자는 : ', num2)
-else:
-    print('가장 큰 숫자는 : ', num3)
+# import re
+# check = '\d{6}-\d{7}'
+
+# while True:
+#     ssn = input('주민등록번호를 입력하세요 (예: 821010-1635210) :')
+#     if re.match(check, ssn) == None:
+#         print('주민등록번호 형식이 잘못 되었습니다. 다시 입력해주세요.')
+#     else:
+#         ssn = re.sub('[^0-9]','',ssn)
+#         for i in range(12):
+#             total = total + int(weighted_num[i])*int(ssn[i])
+#         check_num = (11-(total%11))%10
+#         if str(check_num)[-1] != ssn[-1]:
+#             print('유효하지 않은 주민등록번호 입니다. 다시 입력해주세요.')
+#             continue
+#         else:
+#             if ssn[6] == '1' or ssn[6] == '3':
+#                 print('남성입니다.')
+#             else:
+#                 print('여성입니다.')
+#     break
 
 
 
-    
 
+# 126
+# 우편번호는 5자리로 구성되는데, 앞의 세자리는 구를 나타낸다. 예를들어, 강북구의 경우 010, 011, 012 세 자리로 시작한다.
+
+# -	      0	      1	     2   	3   	4   	5     6       7      8	     9
+# 01	강북구	강북구	강북구	도봉구	도봉구	도봉구	노원구	노원구	노원구	노원구
+# 사용자로 부터 5자리 우편번호를 입력받고 구를 판별하라
+# >> 우편번호: 01400
+# 도봉구
+
+# num = {'010': '강북구',
+#        '011': '강북구',
+#        '012': '강북구',
+#        '013': '도봉구',
+#        '014': '도봉구',
+#        '015': '도봉구',
+#        '016': '노원구',
+#        '017': '노원구',
+#        '018': '노원구',
+#        '019': '노원구',
+#        }
+
+# # 입력값의 숫자 검증을 위한 정규식
+# import re
+# check = '\d'
+
+# # 입력값 검증
+# while True:
+#     post = input('우편번호를 5자리를 입력하세요 (예: 01400) : ')
+#     if re.match(check, post) == None:
+#         print('우편번호를 잘못 입력하셨습니다. 다시 입력해주세요 : ')
+#     else:
+#         break   
+
+# # 우편번호의 지역구 출력
+# print(num.get(post[:3]))
+
+# # 문제에서 제공하는 정답
+# 우편번호 = input("우편번호: ")
+# 우편번호 = 우편번호[:3]
+# if 우편번호 in ["010", "011", "012"]:
+#     print("강북구")
+# elif 우편번호 in ["014", "015", "016"]:
+#     print("도봉구")
+# else:
+#     print("노원구")
+
+# 125
+# 휴대폰 번호 앞자리에 따라 통신사는 아래와 같이 구분된다. 사용자로부터 휴대전화 번호를 입력 받고, 통신사를 출력하는 프로그램을 작성하라.
+
+# 번호	통신사
+# 011	SKT
+# 016	KT
+# 019	LGU
+# 010	알수없음
+# >> 휴대전화 번호 입력: 011-345-1922
+# 당신은 SKT 사용자입니다.
+
+# telecom = {'011': 'SKT',
+#            '016': 'KT',
+#            '019': 'LGU',
+#            '010': '알수없음'}
+
+# # 사용자 휴대전화 입력 검증식
+# import re
+# check = '\d{3}-\d{3,4}-\d{4}'
+
+# # 입력값 검증
+# while True:
+#     num = input('핸드폰 번호를 입력하세요 (예: 000-0000-0000) : ')
+#     if re.match(check, num) == None:
+#         print('번호 입력 형식이 잘 못 되었습니다. 다시 입력해주세요.')
+#     else:
+#         break
+
+# # 통신사 출력
+# print('당신은', telecom.get(num[:3]), '사용자 입니다.')
+
+# 문제에서 제공하는 답
+# number = input("휴대전화 번호 입력: ")
+# num = number.split("-")[0]
+# if num == "011":
+#     com = "SKT"
+# elif num == "016":
+#     com = "KT"
+# elif num == "019":
+#     com = "LGU"
+# else:
+#     com = "알수없음"
+# print(f"당신은 {com} 사용자입니다.")
+
+# # 124
+# # 사용자로부터 세 개의 숫자를 입력 받은 후 가장 큰 숫자를 출력하라.
+
+# # >> input number1: 10
+# # >> input number2: 9
+# # >> input number3: 20
+# # 20
+
+# while True:
+#     num1 = input('첫 번째 정수를 입력하세요 : ')
+#     num2 = input('두 번째 정수를 입력하세요 : ')
+#     num3 = input('세 번째 정수를 입력하세요 : ')
+#     try :
+#         num1 = int(num1)
+#         num2 = int(num2)
+#         num3 = int(num3)
+#         break
+
+#     except ValueError:
+#         print('잘못된 값을 입력하였습니다. 내가 입력한 값:\n1 번: [', num1, ']\n2 번: [', num2,']  \n3 번: [', num3,']')
+
+# if num1 >= num2 and num1 >= num3:
+#     print('가장 큰 숫자는 : ', num1)
+# elif num2 >= num1 and num2 >= num3:
+#     print('가장 큰 숫자는 : ', num2)
+# else:
+#     print('가장 큰 숫자는 : ', num3)
+
+
+# # 문제에서 제공하는 답
+# num1 = input("input number1: ")
+# num2 = input("input number2: ")
+# num3 = input("input number3: ")
+# num1 = int(num1)
+# num2 = int(num2)
+# num3 = int(num3)
+
+# if num1 >= num2 and num1 >= num3:
+#     print(num1)
+# elif num2 >= num1 and num2 >= num3:
+#     print(num2)
+# else:
+#     print(num3)
 
 
 # 123
-# 사용자로부터 달러, 엔, 유로, 또는 위안 금액을 입력받은 후 이를 원으로 변환하는 프로그램을 작성하라. 각 통화별 환율은 다음과 같다. 
+# 사용자로부터 달러, 엔, 유로, 또는 위안 금액을 입력받은 후 이를 원으로 변환하는 프로그램을 작성하라. 각 통화별 환율은 다음과 같다.
 # 사용자는 100 달러, 1000 엔, 13 유로, 100 위안과 같이 금액과 통화명 사이에 공백을 넣어 입력한다고 가정한다.
 
 # 통화명	환율
@@ -43,8 +188,8 @@ else:
 # 위안	171
 
 # exchange_rate = {'달러' : 1167,
-#                  '엔' : 1.096 , 
-#                  '유로' : 1268,    
+#                  '엔' : 1.096 ,
+#                  '유로' : 1268,
 #                  '위안' : 171}
 
 # # 한글, 숫자, 공백 입력 검증을 위한 정규식
@@ -73,9 +218,9 @@ else:
 
 
 # #문제에서 준 정담
-# 환율 = {"달러": 1167, 
-#         "엔": 1.096, 
-#         "유로": 1268, 
+# 환율 = {"달러": 1167,
+#         "엔": 1.096,
+#         "유로": 1268,
 #         "위안": 171}
 # user = input("입력: ")
 # # 이 부분이 중요해 보임. num과 currency에 공백을 기준으로 나누어 담으라는 코드
@@ -84,8 +229,8 @@ else:
 
 # # 정답을 참고해서 더 단순화 한 코드
 # exchange_rate = {'달러' : 1167,
-#                  '엔' : 1.096 , 
-#                  '유로' : 1268,    
+#                  '엔' : 1.096 ,
+#                  '유로' : 1268,
 #                  '위안' : 171}
 
 # # 한글, 숫자, 공백 입력 검증을 위한 정규식
@@ -105,7 +250,7 @@ else:
 # try :
 #     print(currency+'(을)를 원화로 환전하면', float(exchange_num) * exchange_rate[exchange_str], ' 원 입니다')
 
-# except : 
+# except :
 #     print("지원하지 않는 통화입니다.")
 
 
@@ -126,7 +271,7 @@ else:
 # check = '(^[\d]*$)'
 
 # # 입력값의 숫자 검증
-# while True: 
+# while True:
 #     score = input("점수를 입력하세요 : ")
 #     if re.match(check, score) == None:
 #           print("잘 못 입력하셨습니다. 정수만 입력하세요. 내가 입력 값 : ", score)
@@ -145,7 +290,6 @@ else:
 #     print("grade is B")
 # else :
 #     print("grade is A")
-
 
 
 # 121
@@ -195,7 +339,7 @@ else:
 # # 입력값의 국문 검증
 # while True:
 #     word = input("내가 좋아하는 과일은 무엇일까요? : ")
-#     c = re.match(check, word) 
+#     c = re.match(check, word)
 #     if c == None :
 #         print('잘못 입력하셨습니다. 한글만 입력하세요. 내가 입력한 값 :' , word)
 #         continue
@@ -206,7 +350,6 @@ else:
 #     print('정답입니다.')
 # else:
 #     print('오답입니다.')
-
 
 
 # # 119
@@ -222,7 +365,7 @@ else:
 # # 입력값의 국문 검증
 # while True:
 #     season = input("내가 좋아하는 계절은 무엇일까요? : ")
-#     c = re.match(check, season) 
+#     c = re.match(check, season)
 #     if c == None :
 #         print('잘못 입력하셨습니다. 사계절 중 하나만 입력하세요. 내가 입력한 값 :' , season)
 #         continue
@@ -253,7 +396,7 @@ else:
 # trans_i_list = []
 # for ticker in warn_investment_list:
 #     trans_i_list.append(ticker.upper())
-    
+
 # # 영문 검사를 위한 정규식 정의
 # import re
 # check = '(^[a-zA-Z]*$)'
@@ -261,13 +404,13 @@ else:
 # # 입력값의 영문 검증
 # while True:
 #     invest = input("투자할 종목을 입력하세요 (종목명은 영문입니다): ")
-#     c = re.match(check, invest) 
+#     c = re.match(check, invest)
 #     if c == None :
 #         print('잘못 입력하셨습니다. 영문만 입력하세요. 내가 입력한 종목명 :' , invest)
 #         continue
 #     else:
 #         break
-        
+
 # # 투자 경고 종목 판별
 # if invest.upper() in trans_i_list:
 #     print("투자 경고 종목입니다.")
@@ -315,7 +458,7 @@ else:
 #     if t == None:
 #         print("입력이 잘 못 되었습니다. 형식에 맞게 입력해주세요 예 09:07.  내가 입력한 값: ", time)
 #     else:
-#         break    
+#         break
 # if time[-2:] == "00":
 #     print("내가 입력한 값 :", time, "| 정각입니다.")
 # else:
@@ -338,11 +481,10 @@ else:
 #         break
 
 
-
 # 코드가 너무 길어짐.
 # print("시간과 분을 차례대로 입력하세요. 단, 정수만 입력 하세요")
 # while True:
-#     try: 
+#     try:
 #         hour = int(input("현재 몇 시 입니까? ('시간'만 입력. ex) 오전 9시 = 9, 오후 3시 = 15) : "))
 #         break
 #     except ValueError:
@@ -350,10 +492,10 @@ else:
 
 # hour = str(hour)
 # while True:
-#     try: 
-#         min = int(input("현재 몇 분 입니까? ('분'만 입력. ex) 3시 30분 = 30, 5시 9분 = 9 : ")) 
+#     try:
+#         min = int(input("현재 몇 분 입니까? ('분'만 입력. ex) 3시 30분 = 30, 5시 9분 = 9 : "))
 #         min = str(min)
-#         break   
+#         break
 #     except ValueError:
 #         print("정수를 입력하지 않았습니다. 정수를 입력해주세요")
 
@@ -367,9 +509,8 @@ else:
 
 # if str_min == "00" or str_min == "0" :
 #     print("현재시간 :", str_hour+"시", str_min+"분 정각입니다.")
-# else: 
+# else:
 #     print("현재시간 :", str_hour+"시", str_min+"분 정각이 아닙니다.")
-
 
 
 # '''
@@ -450,7 +591,7 @@ else:
 #                 print("홀수입니다")
 #             else:
 #                 print("짝수입니다")
-#             break       
+#             break
 #         except ValueError:
 #                 num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
 # # >> 30
@@ -477,25 +618,24 @@ else:
 #     except ValueError:
 #         try:
 #             print(float(num)+10)
-#             break       
+#             break
 #         except ValueError:
 #                 num = input("숫자를 입력하지 않았습니다. 숫자를 입력하세요 : ")
 
 
 # 1차 시도 실패
 # from distutils.log import error
-    # if int(num) == error("숫자를 입력하세요") or float(num) == error():
-    #     num(input("숫자를 입력하세요 : "))
-    # elif int(num) == type(int): 
-    #     print(int(num) + 10)
-    #     break
-    # elif float(num) == float(int): 
-    #     print(float(num) + 10)
-    #     break
-    # else: 
-    #     num = input("숫자를 입력하세요 : ")
+# if int(num) == error("숫자를 입력하세요") or float(num) == error():
+#     num(input("숫자를 입력하세요 : "))
+# elif int(num) == type(int):
+#     print(int(num) + 10)
+#     break
+# elif float(num) == float(int):
+#     print(float(num) + 10)
+#     break
+# else:
+#     num = input("숫자를 입력하세요 : ")
 
-    
 
 # # 111
 # # 사용자로부터 입력받은 문자열을 두 번 출력하라. 아래는 사용자가 "안녕하세요"를 입력한 경우의 출력 결과이다.
@@ -554,7 +694,7 @@ else:
 # 아래 코드에서 에러가 발생하는 원인에 대해 설명하라.
 
 # print(3 => 4)
-# 이런 연산자는 없음. 
+# 이런 연산자는 없음.
 
 # 105
 # 아래 코드의 결과를 예상하라.
@@ -617,9 +757,6 @@ else:
 # # print(result)
 
 # # 더 간단하게 해결하는 방법이 있음. 모르면 google에 찾아보자...
-
-
-
 
 
 # # 098 딕셔너리 update 메서드
@@ -756,7 +893,7 @@ else:
 #        '죠스바': 1200,
 #        '월드콘': 1500}
 
-# # 딕셔너리의 특징  = 수정 가능, 삭제 가능, 순서 상관 없음, 중복 불가 
+# # 딕셔너리의 특징  = 수정 가능, 삭제 가능, 순서 상관 없음, 중복 불가
 # ice['메로나'] = 1300
 # print(ice)
 
@@ -814,8 +951,8 @@ else:
 # print(valid_score)
 
 # 081 별 표현식
-# 기본적으로 데이터 언패킹은 좌변의 변수와 우변 데이터 개수가 같아야 합니다. 하지만 star expression을 사용하면 
-# 변수의 개수가 달라도 데이터 언패킹을 할 수 있습니다. 
+# 기본적으로 데이터 언패킹은 좌변의 변수와 우변 데이터 개수가 같아야 합니다. 하지만 star expression을 사용하면
+# 변수의 개수가 달라도 데이터 언패킹을 할 수 있습니다.
 # 튜플에 저장된 데이터 중에서 앞에 있는 두 개의 데이터만 필요할 경우 나머지 데이터의 언패킹 코드를 작성할 필요가 없습니다.
 
 # >> a, b, *c = (0, 1, 2, 3, 4, 5)
@@ -882,14 +1019,14 @@ else:
 # t = ('A', 'b', 'c')
 # print(t)
 
-# 튜플은 한 번 정의된 이후 원소를 변경할 수 없으므로 새로운 튜플을 만들어야 한다. 
+# 튜플은 한 번 정의된 이후 원소를 변경할 수 없으므로 새로운 튜플을 만들어야 한다.
 
 # # 075
 # # 아래와 같이 t에는 1, 2, 3, 4 데이터가 바인딩되어 있다. t가 바인딩하는 데이터 타입은 무엇인가?
 
 # t = 1, 2, 3, 4
 # # 정답: 튜플
-# # 원칙적으로 튜플은 괄호와 함께 데이터를 정의해야 하지만, 사용자 편의를 위해 괄호가 없이 동작하는 것 또한 가능하다. 
+# # 원칙적으로 튜플은 괄호와 함께 데이터를 정의해야 하지만, 사용자 편의를 위해 괄호가 없이 동작하는 것 또한 가능하다.
 
 # # 074
 # # 다음 코드를 실행해보고 오류가 발생하는 원인을 설명하라.
@@ -953,7 +1090,7 @@ else:
 # cook = ["피자", "김밥", "만두", "양념치킨", "족발", "피자", "김치만두", "쫄면", "소시지", "라면", "팥빙수", "김치전"]
 # print(len(cook))
 
-# # 리스트에 저장된 항목이 전부 몇개인지 확인하기 위해서 len()함수를 사용할 수 있다. 
+# # 리스트에 저장된 항목이 전부 몇개인지 확인하기 위해서 len()함수를 사용할 수 있다.
 
 # # 058
 # # 다음 리스트의 합을 출력하라.
@@ -1001,16 +1138,16 @@ else:
 # del movie_rank[2]
 # print(movie_rank)
 # # del을 이용하여 리스트에서 원소를 삭제할 수 있음. 리스트에서 어떤 값을 삭제하면 남은 값들은 새로 인덱싱 되므로 여러 값을 삭제할 때는 어떤 값이
-# # 먼저 삭제된 후 남은 원소들의 순서를 새로 고려한 후 삭제해야 함. 
+# # 먼저 삭제된 후 남은 원소들의 순서를 새로 고려한 후 삭제해야 함.
 
 
-# 리무브 매서드는 한 번에 하나의 값 밖에 삭제할 수 없음. 
+# 리무브 매서드는 한 번에 하나의 값 밖에 삭제할 수 없음.
 # movie_rank = ['닥터 스트레인지', '스플릿', '슈퍼맨','배트맨']
 # movie_rank.remove('스플릿', '베트맨')
 # print(movie_rank)
 
 # # movie_rank 리스트에서 '럭키'를 삭제하라.
-# # 특정 원소 삭제시 2가지 방법을 사용할 수 있음. 
+# # 특정 원소 삭제시 2가지 방법을 사용할 수 있음.
 # # Index를 알고 있다면 del을, 원소이 값을 알고 있다면 remove를 사용할 수 있음.
 
 # movie_rank = ['닥터 스트레인지', '슈퍼맨', '스플릿', '럭키', '배트맨']
@@ -1028,7 +1165,7 @@ else:
 # movie_rank.insert(1,"슈퍼맨") #리스트는 수정이 되므로 따로 변수를 지정해서 반환 값을 넣어주지 않아도 괜춘
 # print(movie_rank)
 
-# #리스트의 insert(인덱스, 원소) 메서드를 사용하면 특정 위치에 값을 끼워넣기 할 수 있다. 
+# #리스트의 insert(인덱스, 원소) 메서드를 사용하면 특정 위치에 값을 끼워넣기 할 수 있다.
 
 # # 052 리스트에 원소 추가
 # # 051의 movie_rank 리스트에 "배트맨"을 추가하라.
@@ -1041,7 +1178,7 @@ else:
 # print(movie_rank)
 
 # additional = ['베트맨']
-# movie_rank.extend(additional) #extend 메서드를 사용하기 위해서는 추가하려는 원소를 다른 리스트 속에 넣어 놔야 함. 
+# movie_rank.extend(additional) #extend 메서드를 사용하기 위해서는 추가하려는 원소를 다른 리스트 속에 넣어 놔야 함.
 # print(movie_rank)
 
 # # 051 리스트 생성
@@ -1100,9 +1237,7 @@ else:
 # 파일 이름이 문자열로 저장되어 있을 때 endswith 메서드를 사용해서 파일 이름이 'xlsx' 또는 'xls'로 끝나는지 확인해보세요.
 # file_name = "report.xls"
 # print(file_name.endswith(("xlsx", "xls")))
-# # 위와 같이 endswith을 사용하여 두 가지 조건이 만족되는지를 확인하기 위해서는 괄호가 한 번 더 들어가 줘야 함. 
-
-
+# # 위와 같이 endswith을 사용하여 두 가지 조건이 만족되는지를 확인하기 위해서는 괄호가 한 번 더 들어가 줘야 함.
 
 
 # 044 endswith 메서드
@@ -1143,7 +1278,7 @@ else:
 # print(string)
 
 # 문자열은 변경할 수 없는 자료형
-# replace 메서드를 사용하면 원본은 그대로 둔 채 변경된 새로운 문자열 객체를 리턴해줌. 
+# replace 메서드를 사용하면 원본은 그대로 둔 채 변경된 새로운 문자열 객체를 리턴해줌.
 
 
 # print(string) # 029 replace 메서드
@@ -1158,11 +1293,10 @@ else:
 # # 028 문자열은 immutable
 # # 아래 코드의 실행 결과를 예상해보세요.
 # # 예상 실행결과 = 에러나옴. 바꿀 수 없음
-# # 문자열은 수정할 수 없음. 
+# # 문자열은 수정할 수 없음.
 # lang = 'python'
 # lang[0] = 'P'
 # print(lang)
-
 
 
 # # 027 문자열 다루기
@@ -1174,7 +1308,7 @@ else:
 # # 실행 예:
 # # kr
 
-# # print(url.rfind(".")) #rfind 함수는 찾고자 하는 문자가 등장하는 가장 마지막 위치를 반환한다. 
+# # print(url.rfind(".")) #rfind 함수는 찾고자 하는 문자가 등장하는 가장 마지막 위치를 반환한다.
 # # print(url2.rfind("."))
 # # print(url2[22:])
 
@@ -1281,7 +1415,6 @@ else:
 # print(num_float + 0.1, type(num_float))
 
 
-
 # # 017 정수를 문자열 100으로 변환
 # # 정수 100을 문자열 '100'으로 변환해보세요.
 
@@ -1314,7 +1447,7 @@ else:
 # # 014 파이썬을 이용한 값 계산
 # # 아래 코드의 실행 결과를 예상해보세요.
 
-# # >> 2 + 2 * 3 
+# # >> 2 + 2 * 3
 # # 예상 결과값 = 8
 # print(2 + 2 * 3)
 

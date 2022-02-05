@@ -1,3 +1,37 @@
+# 124 
+# 사용자로부터 세 개의 숫자를 입력 받은 후 가장 큰 숫자를 출력하라.
+
+# >> input number1: 10
+# >> input number2: 9
+# >> input number3: 20
+# 20
+
+while True:
+    num1 = input('첫 번째 정수를 입력하세요 : ')
+    num2 = input('두 번째 정수를 입력하세요 : ')
+    num3 = input('세 번째 정수를 입력하세요 : ')
+    try :
+        num1 = int(num1)
+        num2 = int(num2)
+        num3 = int(num3)
+        break
+
+    except ValueError:
+        print('잘못된 값을 입력하였습니다. 내가 입력한 값:\n1 번: [', num1, ']\n2 번: [', num2,']  \n3 번: [', num3,']')
+
+if num1 > num2 and num1 > num3:
+    print('가장 큰 숫자는 : ', num1)
+elif num2 > num1 and num2 > num3:
+    print('가장 큰 숫자는 : ', num2)
+else:
+    print('가장 큰 숫자는 : ', num3)
+
+
+
+    
+
+
+
 # 123
 # 사용자로부터 달러, 엔, 유로, 또는 위안 금액을 입력받은 후 이를 원으로 변환하는 프로그램을 작성하라. 각 통화별 환율은 다음과 같다. 
 # 사용자는 100 달러, 1000 엔, 13 유로, 100 위안과 같이 금액과 통화명 사이에 공백을 넣어 입력한다고 가정한다.
@@ -8,34 +42,71 @@
 # 유로	1268
 # 위안	171
 
-exchange_rate = {'달러' : 1167, '엔' : 1.096 , '유로' : 1268, '위안' : 171}
+# exchange_rate = {'달러' : 1167,
+#                  '엔' : 1.096 , 
+#                  '유로' : 1268,    
+#                  '위안' : 171}
 
-# 한글, 숫자, 공백 입력 검증을 위한 정규식
-import re
-check = '(^[\d]*[\s]{1}[가-힣]*)'
+# # 한글, 숫자, 공백 입력 검증을 위한 정규식
+# import re
+# check = '(^[\d]*[\s]{1}[가-힣]*)'
 
-# 입력값의 검증
-while True:
-    currency = input('환전을 희망하는 금액과 통화를 입력하세요 ex) 100 달러, 1000 엔, 13 유로, 171 위안 (공백에 유의하세요) : ')
-    if re.match(check, currency) == None:
-        print("잘 못 입력하셨습니다. 형식에 맞게 입력하세요. 내가 입력 값 : ", currency)
-    else:
-        break
+# # 입력값의 검증
+# while True:
+#     currency = input('환전을 희망하는 금액과 통화를 입력하세요 ex) 100 달러, 1000 엔, 13 유로, 171 위안 (공백에 유의하세요) : ')
+#     if re.match(check, currency) == None:
+#         print("잘 못 입력하셨습니다. 형식에 맞게 입력하세요. 내가 입력 값 : ", currency)
+#     else:
+#         break
 
-# 금액과 통화를 추출
-exchange_num = int(re.sub('[^0-9]', "", currency))
-exchange_str = re.sub('[^가-힣]', "", currency)
+# # 금액과 통화를 추출
+# exchange_num = int(re.sub('[^0-9]', "", currency))
+# exchange_str = re.sub('[^가-힣]', "", currency)
 
-# 환전
-if exchange_str in exchange_rate:
-    exchanged = exchange_rate.get(exchange_str) * exchange_num
-    print(currency+'(을)를 원화로 환전하면', str(format(exchanged,',')) + ' 원 입니다')
+# # 환전
+# if exchange_str in exchange_rate:
+#     exchanged = exchange_rate.get(exchange_str) * exchange_num
+#     print(currency+'(을)를 원화로 환전하면', str(format(exchanged,',')) + ' 원 입니다')
 
-else:
-    print('지원하지 않는 통화입니다')
+# else:
+#     print('지원하지 않는 통화입니다')
 
 
-# print('환전 희망 통화 및 금액은', currency, '이고 환전 금액은' )
+# #문제에서 준 정담
+# 환율 = {"달러": 1167, 
+#         "엔": 1.096, 
+#         "유로": 1268, 
+#         "위안": 171}
+# user = input("입력: ")
+# # 이 부분이 중요해 보임. num과 currency에 공백을 기준으로 나누어 담으라는 코드
+# num, currency = user.split()
+# print(float(num) * 환율[currency], "원")
+
+# # 정답을 참고해서 더 단순화 한 코드
+# exchange_rate = {'달러' : 1167,
+#                  '엔' : 1.096 , 
+#                  '유로' : 1268,    
+#                  '위안' : 171}
+
+# # 한글, 숫자, 공백 입력 검증을 위한 정규식
+# import re
+# check = '(^[\d]*[\s]{1}[가-힣]*)'
+
+# # 입력값의 검증
+# while True:
+#     currency = input('환전을 희망하는 금액과 통화를 입력하세요 ex) 100 달러, 1000 엔, 13 유로, 171 위안 (공백에 유의하세요) : ')
+#     if re.match(check, currency) == None:
+#         print("잘 못 입력하셨습니다. 형식에 맞게 입력하세요. 내가 입력 값 : ", currency)
+#     else:
+#         break
+
+# # 금액과 통화를 추출
+# exchange_num, exchange_str = currency.split()
+# try :
+#     print(currency+'(을)를 원화로 환전하면', float(exchange_num) * exchange_rate[exchange_str], ' 원 입니다')
+
+# except : 
+#     print("지원하지 않는 통화입니다.")
 
 
 # 122
@@ -301,14 +372,14 @@ else:
 
 
 
-'''
-115
-사용자로부터 하나의 값을 입력받은 후 해당 값에 20을 뺀 값을 출력하라. 단 출력 값의 범위는 0~255이다. 예를 들어 결괏값이 0보다 작은 값이되는 경우 0을 출력하고 255보다 큰 값이 되는 경우 255를 출력해야 한다.
->> 입력값: 200
-출력값: 180
->> 입력값: 15
-출력값: 0
-'''
+# '''
+# 115
+# 사용자로부터 하나의 값을 입력받은 후 해당 값에 20을 뺀 값을 출력하라. 단 출력 값의 범위는 0~255이다. 예를 들어 결괏값이 0보다 작은 값이되는 경우 0을 출력하고 255보다 큰 값이 되는 경우 255를 출력해야 한다.
+# >> 입력값: 200
+# 출력값: 180
+# >> 입력값: 15
+# 출력값: 0
+# '''
 
 
 # while True:

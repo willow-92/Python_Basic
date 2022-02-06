@@ -1,5 +1,58 @@
+# 128
+# 주민등록번호의 뒷 자리 7자리 중 두번째와 세번째는 지역코드를 의미한다. 주민 등록 번호를 입력 받은 후 출생지가 서울인지 아닌지 판단하는 코드를 작성하라
+#
+# 지역코드	출생지
+# 00 ~ 08	서울
+# 09 ~ 12	부산
+# >> 주민등록번호: 821010-1635210
+# 서울이 아닙니다.
+# >> 주민등록번호: 861010-1015210
+# 서울 입니다.
+
+
+# 가중치 정의
+weighted_num = '234567892345'
+new_total = 0
+total = 0
+import re
+check = '\d{6}-\d{7}'
+
+while True:
+    ssn = input('주민등록번호를 입력하세요 (예: 821010-1635210) :')
+    if re.match(check, ssn) == None:
+        print('주민등록번호 형식이 잘못 되었습니다. 다시 입력해주세요.')
+    else:
+        ssn = re.sub('[^0-9]','',ssn)
+        for i in range(12):
+            print('total = ',total,'    weighted_num[i] = ',int(weighted_num[i]),'    ssn[i] = ',int(ssn[i]))
+            print(weighted_num[i], '*', int(ssn[i]), '=', int(weighted_num[i])*int(ssn[i]))
+            print('new_total = ',int(weighted_num[i])*int(ssn[i]),"+",new_total,'=', new_total + int(weighted_num[i])*int(ssn[i]))
+            new_total = new_total + int(weighted_num[i])*int(ssn[i])
+        check_num = (11-(new_total%11)
+
+        if (len(check_num)>1:
+            chck_num = check_num%10
+        print('new_total%11 = ',new_total%11)
+        print(new_total%11)
+        print(check_num)
+        if str(check_num)[-1] != ssn[-1]:
+            print('유효하지 않은 주민등록번호 입니다. 다시 입력해주세요.')
+            continue
+        else:
+            if int(ssn[7:9]) <= 8:
+                print('서울입니다.')
+            elif int(ssn[7:9]) > 8 :
+                print('서울이 아닙니다.')
+    break
+
+
+
+
+
+
+
 # # 127
-# # 주민등록번호 뒷 자리 7자리 중 첫째 자리는 성별을 나타내는데, 1, 3은 남자 2, 4는 여자를 의미한다. 
+# # 주민등록번호 뒷 자리 7자리 중 첫째 자리는 성별을 나타내는데, 1, 3은 남자 2, 4는 여자를 의미한다.
 # # 사용자로부터 13자리의 주민등록번호를 입력 받은 후 성별 (남자, 여자)를 출력하는 프로그램을 작성하라.
 
 # # >> 예시 - 주민등록번호: 821010-1635210
@@ -10,7 +63,7 @@
 # # 가중치는 주민등록번호의 순서에 따라 2 3 4 5 6 7 8 9 2 3 4 5 라고 함
 # # 먼저 마지막 숫자는 제외하고, 기본코드의 각 12자리와 가중치를 모두 곱하여 합하여야 함
 # # 합한 값을 11로 나눈 나머지 값을 구해야 함
-# # 11에서 그 나머지 값을 뺀 후, 이를 10을 나눈 나머지를 구해야 함
+# # 11에서 그 나머지 값을 뺀다. 단 나머지 자리가 2자리인 경우 이를 10을 나눈 나머지 값을 구해야 함   -> 이 부분을 놓쳤음. 나중에 코드 수정할 것
 # # 나머지의 1의 자리 값과 주민등록번호 마지막 자리 값이 맞아야 유효한 주민등록번호이다.
 
 # # 가중치 정의
@@ -73,7 +126,7 @@
 #     if re.match(check, post) == None:
 #         print('우편번호를 잘못 입력하셨습니다. 다시 입력해주세요 : ')
 #     else:
-#         break   
+#         break
 
 # # 우편번호의 지역구 출력
 # print(num.get(post[:3]))

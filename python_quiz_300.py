@@ -9,41 +9,78 @@
 # >> 주민등록번호: 861010-1015210
 # 서울 입니다.
 
+# 최종 정리
 
+# weighted_num = '234567892345'
+# new_total = 0
+# total = 0
+# import re
+# check = '\d{6}-\d{7}'
+
+# while True:
+#     ssn = input('주민등록번호를 입력하세요 (예: 821010-1635210) :')
+#     if re.match(check, ssn) == None:
+#         print('주민등록번호 형식이 잘못 되었습니다. 다시 입력해주세요.')
+#     else:
+#         ssn = re.sub('[^0-9]','',ssn)
+#         for i in range(12):
+#             new_total = new_total + int(weighted_num[i])*int(ssn[i])
+#         check_num = 11-(new_total%11)
+#         if len(str(check_num))>1 :
+#             check_num = check_num%10          
+#         if str(check_num)[-1] != str(ssn[-1]):
+#             print('유효하지 않은 주민등록번호 입니다. 다시 입력해주세요.')
+#             new_total = 0
+#             continue
+#         else:
+#             if int(ssn[7:9]) <= 8:
+#                 print('서울입니다.')
+#             elif int(ssn[7:9]) > 8 :
+#                 print('서울이 아닙니다.')
+#     break
+
+
+
+# 디버그를 몰라 하나 하나 프린트문 찍어서 짠 코드
 # 가중치 정의
-weighted_num = '234567892345'
-new_total = 0
-total = 0
-import re
-check = '\d{6}-\d{7}'
+# weighted_num = '234567892345'
+# new_total = 0
+# total = 0
+# import re
+# check = '\d{6}-\d{7}'
 
-while True:
-    ssn = input('주민등록번호를 입력하세요 (예: 821010-1635210) :')
-    if re.match(check, ssn) == None:
-        print('주민등록번호 형식이 잘못 되었습니다. 다시 입력해주세요.')
-    else:
-        ssn = re.sub('[^0-9]','',ssn)
-        for i in range(12):
-            print('total = ',total,'    weighted_num[i] = ',int(weighted_num[i]),'    ssn[i] = ',int(ssn[i]))
-            print(weighted_num[i], '*', int(ssn[i]), '=', int(weighted_num[i])*int(ssn[i]))
-            print('new_total = ',int(weighted_num[i])*int(ssn[i]),"+",new_total,'=', new_total + int(weighted_num[i])*int(ssn[i]))
-            new_total = new_total + int(weighted_num[i])*int(ssn[i])
-        check_num = (11-(new_total%11)
-
-        if (len(check_num)>1:
-            chck_num = check_num%10
-        print('new_total%11 = ',new_total%11)
-        print(new_total%11)
-        print(check_num)
-        if str(check_num)[-1] != ssn[-1]:
-            print('유효하지 않은 주민등록번호 입니다. 다시 입력해주세요.')
-            continue
-        else:
-            if int(ssn[7:9]) <= 8:
-                print('서울입니다.')
-            elif int(ssn[7:9]) > 8 :
-                print('서울이 아닙니다.')
-    break
+# while True:
+#     ssn = input('주민등록번호를 입력하세요 (예: 821010-1635210) :')
+#     if re.match(check, ssn) == None:
+#         print('주민등록번호 형식이 잘못 되었습니다. 다시 입력해주세요.')
+#     else:
+#         ssn = re.sub('[^0-9]','',ssn)
+#         for i in range(12):
+#             print('    weighted_num[i] = ',int(weighted_num[i]),'    ssn[i] = ',int(ssn[i]))
+#             print(weighted_num[i], '*', int(ssn[i]), '=', int(weighted_num[i])*int(ssn[i]))
+#             print('new_total = ',int(weighted_num[i])*int(ssn[i]),"+",new_total,'=', new_total + int(weighted_num[i])*int(ssn[i]))
+#             new_total = new_total + int(weighted_num[i])*int(ssn[i])
+#         print("new_total%11 = ",new_total%11)
+#         print("11 - ",new_total%11,"= ",11-(new_total%11))
+#         check_num = 11-(new_total%11)
+#         print('나머지 자리 수는 = ', len(str(check_num)))
+#         if len(str(check_num))>1 :
+#             check_num = check_num%10
+#             print("나머지 자리 숫자가 2자리 이상이기 때문에 10으로 나눈 나머지를 사용함")
+#             print("check_num%10 = ", check_num%10)
+#         else: 
+#             print("나머지 자릿수가 1 이므로 10으로 나눈 나머지값을 사용하지 않고 그대로 ",check_num, "활용")
+#         print("유효성 검증을 위한 숫자는", str(check_num)[-1], "입력한 주민등록 번호의 맨 뒷 자리는", str(ssn)[-1])
+#         if str(check_num)[-1] != str(ssn[-1]):
+#             print('유효하지 않은 주민등록번호 입니다. 다시 입력해주세요.')
+#             new_total = 0
+#             continue
+#         else:
+#             if int(ssn[7:9]) <= 8:
+#                 print('서울입니다.')
+#             elif int(ssn[7:9]) > 8 :
+#                 print('서울이 아닙니다.')
+#     break
 
 
 
@@ -84,6 +121,7 @@ while True:
 #         check_num = (11-(total%11))%10
 #         if str(check_num)[-1] != ssn[-1]:
 #             print('유효하지 않은 주민등록번호 입니다. 다시 입력해주세요.')
+#             total = 0
 #             continue
 #         else:
 #             if ssn[6] == '1' or ssn[6] == '3':
@@ -126,7 +164,7 @@ while True:
 #     if re.match(check, post) == None:
 #         print('우편번호를 잘못 입력하셨습니다. 다시 입력해주세요 : ')
 #     else:
-#         break
+#         break   
 
 # # 우편번호의 지역구 출력
 # print(num.get(post[:3]))

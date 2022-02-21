@@ -18,39 +18,90 @@
 # 다 못 풀었음. 다시 풀 것
 
 # 제출용
-basic = []
+
+
+
+basic = [
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
+         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+         ]
+
+# basic = []
+# for i in range(19):
+#     line = map(int, input().split())
+#     basic.append(list(line))
+# new_basic = basic
+
+# n = int(input())
+n = 2
+# # x_loc = []
+# # y_loc = []
+# x_loc = [10, 12]
+# y_loc = [10, 12]
+# for i in range(n):
+#     x, y = map(int, input().split())
+#     x_loc.append(x)
+#     y_loc.append(y)
+
+# 0222 다시 풀것
+for i in range(n):
+    x,y = input().split()
+    for j in range(1,20):
+        print('basic[j-1][int(y)-1] = ', basic[j-1][int(y)-1])
+        if basic[j-1][int(y)-1] == 1:
+            basic[j-1][int(y)-1] = 0
+            print('뒤집은 후 basic[j-1][int(y)-1] = ', basic[j-1][int(y)-1])
+        for i in range(19):
+            print(' '.join(map(str, basic[i])))  
+        else:
+            basic[j-1][int(y)-1] = 1
+            print('뒤집은 후 basic[j-1][int(y)-1] = ', basic[j-1][int(y)-1])
+        print('basic[int(x)-1][j-1] = ', basic[int(x)-1][j-1])
+        if basic[int(x)-1][j-1] == 1:
+            basic[int(x)-1][j-1] = 0
+            print('뒤집은 후 basic[j-1][int(x)-1] = ', basic[int(x)-1][j-1])
+        else:
+            basic[int(x)-1][j-1] = 1
+              
 for i in range(19):
-    line = map(int, input().split())
-    basic.append(list(line))
-new_basic = basic
+    print(' '.join(map(str, basic[i])))  
 
-n = int(input())
-x_loc = []
-y_loc = []
-for i in range(n):
-    x, y = map(int, input().split())
-    x_loc.append(x)
-    y_loc.append(y)
 
-for i in range(1,20):
-    if i == x_loc[i]-1: 
-        for j in range(1,20):
-            if i x_loc[i]-1 == i 
-                if new_basic[i-1][j-1] == 0:
-                    new_basic[i-1][j-1] = 1
-                else:
-                    new_basic[i-1][j-1] = 0
-            if j in y_loc:
-                if new_basic[i-1][j-1] == 0:
-                    new_basic[i-1][j-1] = 1
-                else:
-                    new_basic[i-1][j-1] = 0
+# for i in range(1,20):
+#     if i == x_loc[i]-1: 
+#         for j in range(1,20):
+#             if new_basic[i-1][j-1] == 0:
+#                 new_basic[i-1][j-1] = 1
+#             else:
+#                 new_basic[i-1][j-1] = 0
+#         if j in y_loc:
+#             if new_basic[i-1][j-1] == 0:
+#                 new_basic[i-1][j-1] = 1
+#             else:
+#                 new_basic[i-1][j-1] = 0
 
-for i in range(n):
-    new_basic[x_loc[i]-1][y_loc[i]-1] = basic[x_loc[i]-1][y_loc[i]-1]
+# # for i in range(n):
+# #     new_basic[x_loc[i]-1][y_loc[i]-1] = basic[x_loc[i]-1][y_loc[i]-1]
     
-for i in range(19):
-    print(' '.join(map(str, basic[i])))    
+# for i in range(19):
+#     print(' '.join(map(str, basic[i])))    
 
 
 # ================
@@ -81,7 +132,7 @@ for i in range(19):
 #          [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], 
 #          [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
 #          ]
-new_basic = basic
+# new_basic = basic
 # print(new_basic)
 # 십자 뒤집기 결과를 출력한다.
 #     1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
@@ -132,39 +183,39 @@ new_basic = basic
 # n = 2
 # x_loc = [10, 12]
 # y_loc = [10, 12]
-n = int(input())
-x_loc = []
-y_loc = []
-for i in range(n):
-    x, y = map(int, input().split())
-    x_loc.append(x)
-    y_loc.append(y)
+# n = int(input())
+# x_loc = []
+# y_loc = []
+# for i in range(n):
+#     x, y = map(int, input().split())
+#     x_loc.append(x)
+#     y_loc.append(y)
 
-# 입력된 바둑판의 돌을 반대로 전환
-for i in range(1,20):
-    for j in range(1,20):
-        if i in x_loc:
-            if new_basic[i-1][j-1] == 0:
-                new_basic[i-1][j-1] = 1
-            else:
-                new_basic[i-1][j-1] = 0
-        if j in y_loc:
-            if new_basic[i-1][j-1] == 0:
-                new_basic[i-1][j-1] = 1
-            else:
-                new_basic[i-1][j-1] = 0
+# # 입력된 바둑판의 돌을 반대로 전환
+# for i in range(1,20):
+#     for j in range(1,20):
+#         if i in x_loc:
+#             if new_basic[i-1][j-1] == 0:
+#                 new_basic[i-1][j-1] = 1
+#             else:
+#                 new_basic[i-1][j-1] = 0
+#         if j in y_loc:
+#             if new_basic[i-1][j-1] == 0:
+#                 new_basic[i-1][j-1] = 1
+#             else:
+#                 new_basic[i-1][j-1] = 0
 
-# 기존 좌표의 기존 값 가져오기
-for i in range(n):
-    # print('n = ', n, 'i = ', i)
-    # print('x_loc[i] =', x_loc[i])
-    # print('y_loc[i] =', y_loc[i])
-    # print('new_basic[x_loc[i] = ', new_basic[x_loc[i]][19-1])
-    # print(new_basic[x_loc[i]-1][y_loc[i]-1], "=", basic[x_loc[i]-1][y_loc[i]-1])
-    new_basic[x_loc[i]-1][y_loc[i]-1] = basic[x_loc[i]-1][y_loc[i]-1]
+# # 기존 좌표의 기존 값 가져오기
+# for i in range(n):
+#     # print('n = ', n, 'i = ', i)
+#     # print('x_loc[i] =', x_loc[i])
+#     # print('y_loc[i] =', y_loc[i])
+#     # print('new_basic[x_loc[i] = ', new_basic[x_loc[i]][19-1])
+#     # print(new_basic[x_loc[i]-1][y_loc[i]-1], "=", basic[x_loc[i]-1][y_loc[i]-1])
+#     new_basic[x_loc[i]-1][y_loc[i]-1] = basic[x_loc[i]-1][y_loc[i]-1]
     
-for i in range(19):
-    print(' '.join(map(str, basic[i])))    
+# for i in range(19):
+#     print(' '.join(map(str, basic[i])))    
 
 
 
@@ -300,7 +351,7 @@ for i in range(19):
 # 참고
 # 번호를 부른 순서를 리스트에 순서대로 기록해 두었다가, 기록한 값들을 거꾸로 출력하면 된다.
 # range(시작, 끝, 증감) #시작 수는 포함, 끝 수는 포함하지 않음. [시작, 끝)
-# range(n-1, -1, -1) #n-1, n-2, ..., 3, 2, 1, 0
+# range(n-1, -1, -1) #n-1, n, ..., 3, 2, 1, 0
 
 # 입력
 # 번호를 부른 횟수(n, 1 ~ 10000)가 첫 줄에 입력된다.
@@ -482,8 +533,8 @@ for i in range(19):
 # 어떤 규칙에 따라 수를 순서대로 나열한 것을 수열(sequences)이라고 한다.
 
 # 예를 들어
-# 1 -1 3 -5 11 -21 43 ... 은
-# 1부터 시작해 이전에 만든 수에 -2를 곱한 다음 1을 더해 다음 수를 만든 수열이다.
+# 1 -1 3 -5 11 1 43 ... 은
+# 1부터 시작해 이전에 만든 수에 를 곱한 다음 1을 더해 다음 수를 만든 수열이다.
 
 # 이런 이상한 수열을 알게 된 영일이는 또 궁금해졌다.
 # "그럼.... 13번째 나오는 수는 뭘까?"
@@ -505,7 +556,7 @@ for i in range(19):
 # n번째 수를 출력한다.
 
 # 입력 예시   
-# 1 -2 1 8
+# 1  1 8
 
 # 출력 예시
 # -85

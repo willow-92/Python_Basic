@@ -1,3 +1,80 @@
+
+
+# 하나의 딕셔너리를 입력받아 딕셔너리의 key 값을 화면에 출력하는 print_keys 함수를 정의하라.
+
+# print_keys ({"이름":"김말똥", "나이":30, "성별":0})
+# 이름
+# 나이
+# 성별
+
+# def print_keys(profile : dict) -> str:
+#     for i in profile.keys():
+#         print(i)
+
+# print_keys ({"이름":"김말똥", "나이":30, "성별":0})
+
+
+# # 223
+# # 하나의 리스트를 입력받아 짝수만 화면에 출력하는 print_even 함수를 정의하라.
+
+# # print_even ([1, 3, 2, 10, 12, 11, 15])
+# # 2
+# # 10
+# # 12
+
+# def print_even(sl : list) -> int:
+#     for i in sl:
+#         if i % 2 == 0:
+#             print(int(i))
+
+# print_even([1, 3, 2, 10, 12, 11, 15])
+
+
+# 222
+# 성적 리스트를 입력 받아 평균을 출력하는 print_score 함수를 정의하라.
+
+# print_score ([1, 2, 3])
+# # 2.0
+
+# def print_score (*args : int) -> int:
+#     print(sum(args)/len(args))
+
+# print_score(3,6,9)
+
+    
+
+
+
+# # 221
+# # 입력된 문자열을 역순으로 출력하는 print_reverse 함수를 정의하라.
+
+# # print_reverse("python")
+# # nohtyp
+
+
+# word = "python"
+# word = list(word)
+# word.reverse()
+# print(''.join(word))
+
+# 슬라이싱 사용
+# def print_reverse(word):
+#     print(word[::-1])
+
+
+# # reverse 사용
+# def print_reverse(word : str) -> str:
+#     word = list(word)
+#     word.reverse()
+#     print(''.join(word))
+
+# reversed 사용
+# def print_reverse(word : str) -> str :
+#     word = reversed(word)
+#     print(''.join(word))
+
+# print_reverse('python')
+
 # # 220
 # # 세 개의 숫자를 입력받아 가장 큰수를 출력하는 print_max 함수를 정의하라. 단 if 문을 사용해서 수를 비교하라.
 # def print_max(a, b, c):
@@ -9,6 +86,7 @@
 #     else:
 #         max = c
 #     print(max)
+
 
 # print_max(3,6,7)
 

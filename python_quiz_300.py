@@ -1,5 +1,48 @@
 
 
+
+
+# # 226
+# # 입력 문자열을 한 줄에 다섯글자씩 출력하는 print_5xn(string) 함수를 작성하라.
+
+# # print_5xn("아이엠어보이유알어걸")
+# # 아이엠어보
+# # 이유알어걸
+
+# def print_5xn(string : str) -> str:
+#     for i in range(len(string)+1):
+#         if i % 5 == 0 and i >= 5:
+#             print(string[i-5:i])
+
+
+# string = '''아이엠어보이유알어걸'''
+# print_5xn(string)
+
+# 문제가 제시한 정답
+# for 문 도는 걸 최소화 한 것으로 보여져서, 더 효과적이라고 생각됨
+# # def print_5xn(line):
+#     chunk_num = int(len(line) / 5)
+#     for x in range(chunk_num + 1) :
+#         print(line[x * 5: x * 5 + 5])
+
+
+# # 225
+# # my_dict에는 날짜를 키값으로 OHLC가 리스트로 저장돼 있다.
+
+# my_dict = {"10/26" : [100, 130, 100, 100],
+#            "10/27" : [10, 12, 10, 11]}
+# # my_dict와 날짜 키값을 입력받아 OHLC 리스트를 출력하는 print_value_by_key 함수를 정의하라.
+
+# # print_value_by_key  (my_dict, "10/26")
+# # [100, 130, 100, 100]
+
+# def print_value_by_key(dict : dict, day : str) -> list:
+#     print(dict[day])
+
+
+# print_value_by_key  (my_dict, "10/26")
+
+#224
 # 하나의 딕셔너리를 입력받아 딕셔너리의 key 값을 화면에 출력하는 print_keys 함수를 정의하라.
 
 # print_keys ({"이름":"김말똥", "나이":30, "성별":0})

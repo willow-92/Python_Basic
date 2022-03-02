@@ -1,13 +1,41 @@
+# # 230
+# # 아래 코드의 실행 결과를 예측하라.
+
+# def my_print (a, b) :
+#     print("왼쪽:", a)
+#     print("오른쪽:", b)
+
+# my_print(b=100, a=200)
+
+
+
+# 왼쪽: 200
+# 오른쪽: 100
+
+# # 229
+# # 아래 코드의 실행 결과를 예측하라.
+
+# def my_print (a, b) :
+#     print("왼쪽:", a)
+#     print("오른쪽:", b)
+
+# my_print(a=100, b=200)
+
+# 왼쪽: 100 
+# 오른쪽: 200
+
+
+
 # 228
 # 연봉을 입력받아 월급을 계산하는 calc_monthly_salary(annual_salary) 함수를 정의하라. 회사는 연봉을 12개월로 나누어 분할 지급하며, 이 때 1원 미만은 버림한다.
 
 #  calc_monthly_salary(12000000)
 # 1000000
 
-def calc_monthly_salary(annual_salary):
-    print(round((annual_salary/12) - annual_salary/12 % 10))
+# def calc_monthly_salary(annual_salary):
+#     print(round((annual_salary/12) - annual_salary/12 % 10))
 
-calc_monthly_salary(35000000)
+# calc_monthly_salary(35000000)
 
 
 # 227
@@ -21,12 +49,16 @@ calc_monthly_salary(35000000)
 
 # string = "아이엠어보이유알어걸"
 
-# def print_mxn(string : str, number : int) -> str:
+# return으로 특정 값을 지정해주지 않으면 none으로 적는 것이 맞음
+# def print_mxn(string : str, number : int) -> none:
 #     chunk_num = int(len(string)/number)
 #     for i in range(chunk_num + 1) :
 #         print(string[i * number : i * number + number])
 
 # print_mxn(string, 3)
+
+
+
 
 # # 226
 # # 입력 문자열을 한 줄에 다섯글자씩 출력하는 print_5xn(string) 함수를 작성하라.

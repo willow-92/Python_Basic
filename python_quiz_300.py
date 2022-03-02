@@ -1,6 +1,32 @@
+# 228
+# 연봉을 입력받아 월급을 계산하는 calc_monthly_salary(annual_salary) 함수를 정의하라. 회사는 연봉을 12개월로 나누어 분할 지급하며, 이 때 1원 미만은 버림한다.
+
+#  calc_monthly_salary(12000000)
+# 1000000
+
+def calc_monthly_salary(annual_salary):
+    print(round((annual_salary/12) - annual_salary/12 % 10))
+
+calc_monthly_salary(35000000)
 
 
+# 227
+# 문자열과 한줄에 출력될 글자 수를 입력을 받아 한 줄에 입력된 글자 수만큼 출력하는 print_mxn(string) 함수를 작성하라.
 
+# printmxn("아이엠어보이유알어걸", 3)
+# 아이엠
+# 어보이
+# 유알어
+# 걸
+
+# string = "아이엠어보이유알어걸"
+
+# def print_mxn(string : str, number : int) -> str:
+#     chunk_num = int(len(string)/number)
+#     for i in range(chunk_num + 1) :
+#         print(string[i * number : i * number + number])
+
+# print_mxn(string, 3)
 
 # # 226
 # # 입력 문자열을 한 줄에 다섯글자씩 출력하는 print_5xn(string) 함수를 작성하라.

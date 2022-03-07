@@ -98,42 +98,42 @@
 
 
 
-class UserInfo:
-    # 속성, 메소드
-    def __init__(self, name):
-        self.name = name
-    def user_info_p(self):
-        print("Name : ", self.name)
+# class UserInfo:
+#     # 속성, 메소드
+#     def __init__(self, name):
+#         self.name = name
+#     def user_info_p(self):
+#         print("Name : ", self.name)
+
+# # user1 = UserInfo("kim")
+# # 인스턴스화 한다 그럼 할당한다.
+# # 클래스 형태로 구성된 유저 정보들을 쉽게 관리할 수 있따. 
 
 # user1 = UserInfo("kim")
-# 인스턴스화 한다 그럼 할당한다.
-# 클래스 형태로 구성된 유저 정보들을 쉽게 관리할 수 있따. 
+# user1.user_info_p()
+# user2 = UserInfo("Park")
+# user2.user_info_p()
 
-user1 = UserInfo("kim")
-user1.user_info_p()
-user2 = UserInfo("Park")
-user2.user_info_p()
+# # 인스턴스가 뭐냐? 만약 유저 1과 2는 같지 않다.
+# # 위에 네임은 김이고, 유저 2의 변수의 값은 박이다.
+# # 이름 뿐만 아니라 키 성별 성적 주소 이런 모든 속성값이 다를텐데, 이 유저 1의 네임 스페이스 안에는 찍어보면 유저 1에 네임을 출력해보자.
+# # 김이 있다. 그리고 유저 2에는 당연히 박이 들어있다. 
 
-# 인스턴스가 뭐냐? 만약 유저 1과 2는 같지 않다.
-# 위에 네임은 김이고, 유저 2의 변수의 값은 박이다.
-# 이름 뿐만 아니라 키 성별 성적 주소 이런 모든 속성값이 다를텐데, 이 유저 1의 네임 스페이스 안에는 찍어보면 유저 1에 네임을 출력해보자.
-# 김이 있다. 그리고 유저 2에는 당연히 박이 들어있다. 
+# # 인스턴스가 가지고 있는 자기 자신의 저장 공간. 네임 스페이스 안에는 전혀 다른 값이 들어가게 된다. 
+# # 그래서 유저 1과 유저 2는 다르다.
+# # 증명을 해보면, 
 
-# 인스턴스가 가지고 있는 자기 자신의 저장 공간. 네임 스페이스 안에는 전혀 다른 값이 들어가게 된다. 
-# 그래서 유저 1과 유저 2는 다르다.
-# 증명을 해보면, 
+# # id는 메모리의 주소값을 찍어줌. 
+# print(id(user1))
+# print(id(user2))
 
-# id는 메모리의 주소값을 찍어줌. 
-print(id(user1))
-print(id(user2))
+# # 서로 다른 값이 나옴
+# # 클래스를 생성해서 클래스를 이용해서 클래스를 생성해서 인스턴스화 시켜서 사용하고 있다.
+# # 그 인스턴스화 된 변수들은 서로 독립적인 네임 스페이스라는 창고를 이용해서 그 안에 네임이나 성별 등을 저장하고 있다는 것을 확인할 수 있다.
+# # 네임 스페이스는 print(user1.__dict__)
 
-# 서로 다른 값이 나옴
-# 클래스를 생성해서 클래스를 이용해서 클래스를 생성해서 인스턴스화 시켜서 사용하고 있다.
-# 그 인스턴스화 된 변수들은 서로 독립적인 네임 스페이스라는 창고를 이용해서 그 안에 네임이나 성별 등을 저장하고 있다는 것을 확인할 수 있다.
-# 네임 스페이스는 print(user1.__dict__)
-
-print(user1.__dict__)
-print(user2.__dict__)
+# print(user1.__dict__)
+# print(user2.__dict__)
 
 # 유저 1 인스턴스의 네임스페이스에는 킴이 있고. 키와 벨류 형태로. 
 # 유저 2에서는 다르게 구성되어 있는 것을 확인할 수가 있다.
@@ -151,36 +151,36 @@ print(user2.__dict__)
 # 예제 2
 # self의 이해
 # class SelfTest() 와 같이 괄호가 있어도 됨
-class SelfTest:
-    def function1():
-        print('function1 called!')
-    def function2(self):
-        print(id(self))
-        print('function2 called!')
+# class SelfTest:
+#     def function1():
+#         print('function1 called!')
+#     def function2(self):
+#         print(id(self))
+#         print('function2 called!')
 
-self_test = SelfTest()
-# self_test.function1()
-# self_test.function1()은 self_test라는 클래스를 바탕으로 찍어낸 인스턴스임. 인스턴스가 이걸 호출 해오려고 하니까 function1은 셀프 인자가 없기 때문에 누구의 function1함수인지 모르는 것. 
-# 클래스 메소드인 것. 이럴 때는 아래와 같이 클래스에서 호출을 해야 함
+# self_test = SelfTest()
+# # self_test.function1()
+# # self_test.function1()은 self_test라는 클래스를 바탕으로 찍어낸 인스턴스임. 인스턴스가 이걸 호출 해오려고 하니까 function1은 셀프 인자가 없기 때문에 누구의 function1함수인지 모르는 것. 
+# # 클래스 메소드인 것. 이럴 때는 아래와 같이 클래스에서 호출을 해야 함
 
-SelfTest.function1()
-self_test.function2()
+# SelfTest.function1()
+# self_test.function2()
 
-# function1은 클래스 메소드이고 function2는 인스턴스 메소드임
-# 인스턴스를 생성해야 해당 self안에 네임스페이스에 이런 셀프, 각각의 네임스페이스에 이름을 집어 넣어 놓았기 때문에,
-# 2버 function은 호출이 되는 것이고, 1번은 이 메소드를 인스턴스에서는 호출할 수가 없는 것. 셀프 인자가 없기 때문에. 
-# 이걸 증명하려면 Id 값을 찍어보면 됨
+# # function1은 클래스 메소드이고 function2는 인스턴스 메소드임
+# # 인스턴스를 생성해야 해당 self안에 네임스페이스에 이런 셀프, 각각의 네임스페이스에 이름을 집어 넣어 놓았기 때문에,
+# # 2버 function은 호출이 되는 것이고, 1번은 이 메소드를 인스턴스에서는 호출할 수가 없는 것. 셀프 인자가 없기 때문에. 
+# # 이걸 증명하려면 Id 값을 찍어보면 됨
 
-print(id(self_test))
+# print(id(self_test))
  
-# 아이디가 동일하게 나옴
-# 그 뜻은 self test가 자동으로 넘어갔다고 볼 수 있음
-# 그렇기 때문에 자기 고유의 인스턴스를 가질 수가 있는 것. 
+# # 아이디가 동일하게 나옴
+# # 그 뜻은 self test가 자동으로 넘어갔다고 볼 수 있음
+# # 그렇기 때문에 자기 고유의 인스턴스를 가질 수가 있는 것. 
 
-# SelfTest.function2()
-# 위와 같이 호출해도 에러가 발생된다. 왜냐하면 클래스 정의 할 때 셀프 인자를 받으라고 되어 있는데, 방금 호출할 때는 인자가 없으니까. 
-# 그렇 어떻게 해야 하냐? self_test를 인자로 넣어주면 된다.
-SelfTest.function2(self_test)
+# # SelfTest.function2()
+# # 위와 같이 호출해도 에러가 발생된다. 왜냐하면 클래스 정의 할 때 셀프 인자를 받으라고 되어 있는데, 방금 호출할 때는 인자가 없으니까. 
+# # 그렇 어떻게 해야 하냐? self_test를 인자로 넣어주면 된다.
+# SelfTest.function2(self_test)
 
 # 3개가 다 같은 id값
 # 3개 다 같은 id값. 
@@ -193,4 +193,96 @@ SelfTest.function2(self_test)
 # 인스턴스를 생성하는 메소드는 셀프 인자가 자동으로 넘어간다고 이해하면 된다. 
 # 셀프 인자가 없는 것들은 클래스에서 직접 호출한다고 정리하고 넘어가면 된다. 
 
-# 클래스 변수와 인스턴스 변수 
+# 예제 3번
+# 클래스 변수와 인스턴스 변수
+# 클래스 변수는 Self가 없음
+
+class WareHouse:
+    # 클래스 변수
+    stock_num = 0
+    def __init__(self, name):
+        self.name = name
+        WareHouse.stock_num += 1
+    def __del__(self):
+        WareHouse.stock_num -= 1
+
+user1 = WareHouse('kim')
+user2 = WareHouse('Park')
+user3 = WareHouse('Lee')
+
+# 네임스페이스 찍기
+print(user1.__dict__)
+print(user2.__dict__)
+print(user3.__dict__)
+
+# 네임스페이스를 다 출력해보면{'name': 'kim'}
+# {'name': 'kim'}
+# {'name': 'Park'}
+# {'name': 'Lee'}
+# 각 네임스페이스 구간 안에, 김, 박, 이가 사용하는데, 중요한 것은 클래스 안에서 선언한 숫자는 나오지 않는다. 
+# 왜? 셀프가 아니니까.
+# 그러면 WareHouse에 dict을 출력해보면 나온다. 
+print(WareHouse.__dict__)
+# {'__module__': '__main__', 'stock_num': 3, '__init__': <function WareHouse.__init__ at 0x000002A6D47CAD40>, '__del__': <function WareHouse.__del__ at 0x000002A6D47CA830>, '__dict__': <attribute '__dict__' of 'WareHouse' objects>, '__weakref__': <attribute '__weakref__' of 'WareHouse' objects>, '__doc__': None}
+# 여기에 stock_num이 3이 되어 있다. 중요한 개념
+# 클래스 변수는 모두가 공유하기 때문에 인스턴스가 하나 생성될 때 마다 아래 코드 구간이 호출이 되면서 
+
+    # def __init__(self, name):
+    #     self.name = name
+    #     WareHouse.stock_num += 1 
+
+# 총 3명이 이 창고를 사용하고 있게 되는 것. 
+
+print(user1.name)
+print(user2.name)
+print(user3.name)
+
+# 위와 같이 하면 아래와 같이 유저의 이름을 다 출력할 수 있게 됨
+# kim
+# Park
+# Lee
+
+print(WareHouse.__dict__) #클래스 네임 스페이스. 클래스 변수는 (공유)
+
+# 아래는 인스턴스 변수들. 각각 자기 것은 가지고 있음. 
+
+print(user1.__dict__)
+print(user2.__dict__)
+print(user3.__dict__)
+
+# 공유하기 때문에 print의 유저 1의 stock_num 으로 접근이 가능할까?
+# 이 안에 stcok_num이 없는데, class에 들어있는데, 될까?
+print(user1.stock_num) 
+# 출력이 된다. 자기 네임 스페이스에 없으면 클래스에 가서 찾는다.
+
+# 자기 네임 스페이스에 없으면 클래스 네임스페이스에 가서 변수를 찾고. 
+# 거기에도 없으면 에러가 발생한다. 
+
+print(user1.stock_num) 
+print(user2.stock_num) 
+print(user3.stock_num) 
+del user1
+
+print(user2.stock_num) 
+# 나중에 배우겠지만 del이라는 함수로 인스턴스를 삭제할 수 있음. 
+# 이때 1번을 지웠기 때문에 2번 3번만 출력해보면 이때는 2가 출력이 된다. 
+# 왜? 위에 짠 코드에서 지울때 출력되는 메소드가 del. 얘가 1을 공통변수에서 빼주었기 때문.
+
+# 클래스 코딩을 할 때, 만약 직원 클래스라고 가정을 하면, 연봉 인상률이라는 변수로 가정해보자.
+# 전체를 0.05로 해놓고 5% 인상이라고 하면, 모든 직원들이 연봉에서 전체 직원들의 인상률이 0.05%로 사용할 수 있음. 하나의 변수를 통해서 모든 인스턴스들이 공유하는 
+# 패턴을 가지고 있는 코딩을 클래스로 구현해서 중복되는 코드도 많이 줄일수가 있음. 
+# 이 개념을 반드시 알아두어야 함
+
+# 클래스와 인스턴스 차이를 알아야 함
+# 클래스는 전체에서 공유가 되고
+# 인스턴스는 각자 네임 스페이스를 가지고 있다. 
+# 하지만 클래스도 네임 스페이스가 있다. 
+# 인스턴스 네임스페이스에서 값이 없으면, 인스턴스 네임스페이스에서 값이 없으면, 클래스 네임스페이스를 뒤져서 값을 가지고 온다.
+# 그리고 직접 사용 가능하고, 객체보다 먼저 생성되고
+
+# 인스턴스 변수도 객체마다 별도로 존재하고. 인스턴스 생성 후 사용한단.
+# 네임스페이스는 클래스와 인스턴스 각각 저장된 파이썬 공간. 인트, 플롯, 모든 자료형은 네임스페이스를 가지고 있다.
+# 셀프, 클래스, 인스턴스, 네임스페이스, 클래스 선언. 
+
+# 앞으로 수업 하는 동안 저절로 이해되는 부분. 스트레스 받을 필요는 없다. 
+# 구글에서 간단하게 검색 해보고 보충적으로 지식을 습득해봐라. 

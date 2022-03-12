@@ -1,3 +1,15 @@
+# # 242 현재시간의 타입
+# # datetime 모듈의 now 함수의 리턴 값의 타입을 화면에 출력해보세요.
+# from datetime import datetime
+# print(type(datetime.now()))
+
+
+# # 241 현재시간
+# # datetime 모듈을 사용해서 현재 시간을 화면에 출력해보세요.
+# from datetime import datetime
+# print(datetime.now())
+
+
 # 240
 # 아래 코드의 실행 결과를 예측하라.
 
@@ -139,6 +151,7 @@
 # 4 --> 틀렸음
 # 함수 내부에서 사용한 변수는 함수 밖에서 접근할 수 없음.
 # 함수 내부에서 계산한 값을 전달하기 위해서는 return을 사용해야 함
+
 
 
 # # 230

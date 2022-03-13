@@ -1,3 +1,66 @@
+# 245 strptime
+# datetime.datetime.strptime 메서드를 사용하면 문자열 형식의 시간을 datetime.datetime 타입의 시간 값으로 만들어줍니다. "2020-05-04"의 문자열을 시간 타입으로 변환해보세요.
+from datetime import datetime
+word = "2020-05-04"
+time = datetime.strptime(word, '%Y-%m-%d')
+print(type(time), time)
+
+
+# # 244 strftime
+# # 현재시간을 얻어온 후 다음과 같은 포맷으로 시간을 출력해보세요. strftime 메서드를 사용하세요.
+
+# # 18:35:01 
+
+# from datetime import datetime
+# now = datetime.now()
+# print(now.strftime("%H:%M:%S"))
+
+# strftime 함수는 원하는 포맷에 맞춰 출력 포맷을 설정하게 해준다. 
+# strftime 함수는 시간 튜플을 받아 매개 변수 형식에 의해 결정, 읽을 수 있는 형식으로 로컬 시간의 문자열을 반환한다.
+
+# 243 timedelta
+# datetime 모듈의 timedelta를 사용해서 오늘로부터 5일, 4일, 3일, 2일, 1일 전의 날짜를 화면에 출력해보세요.
+# from datetime import datetime, timedelta
+# today = datetime.now()
+# for i in range(5, 0, -1):
+#     day = timedelta(days=i)
+#     print(i, "일 전 = ", today.day - day.days, "일")
+
+
+# 문제에서 제시한 정답
+# import datetime
+
+# now = datetime.datetime.now()
+
+# for day in range(5, 0, -1):
+#     delta = datetime.timedelta(days=day)
+#     date = now - delta
+#     print(date)
+
+# timedelta module
+# datetime 모듈의 timedelta 클래스는 기간을 표현하기 위해 사용됨
+# timedelta 클래스의 생성인자는 주, 일, 시, 분, 초, 마이크로 초, 밀리초를 인자로 받음
+# time delta를 통해 산술/대소 연산자를 사용할 수 있음
+
+# 예시
+# >>> from datetime import date, timedelta
+# >>> week = timedelta(weeks=1)
+# >>> week
+# datetime.timedelta(days=7)
+# >>> next_week = date.today() + week
+# >>> next_week
+# datetime.date(2020, 7, 25)
+# >>> two_weeks = week * 2
+# >>> two_weeks
+# datetime.timedelta(days=14)
+# >>> week < two_weeks
+# True
+# >>> two_weeks == timedelta(weeks=2)
+# True
+# >>> last_week = next_week - two_weeks
+# >>> last_week
+# datetime.date(2020, 7, 11)
+
 # # 242 현재시간의 타입
 # # datetime 모듈의 now 함수의 리턴 값의 타입을 화면에 출력해보세요.
 # from datetime import datetime

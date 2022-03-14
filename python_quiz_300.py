@@ -1,9 +1,58 @@
-# 245 strptime
-# datetime.datetime.strptime 메서드를 사용하면 문자열 형식의 시간을 datetime.datetime 타입의 시간 값으로 만들어줍니다. "2020-05-04"의 문자열을 시간 타입으로 변환해보세요.
-from datetime import datetime
-word = "2020-05-04"
-time = datetime.strptime(word, '%Y-%m-%d')
-print(type(time), time)
+# # 250 numpy
+# # numpy 모듈의 arange 함수를 사용해서 0.0 부터 5.0까지 0.1씩 증가하는 값을 화면에 출력해보세요.
+# from numpy import arange
+# print(arange(0.0, 5.1, 0.1))
+
+# for i in arange(0, 5.1, 0.1):
+#     print(i)
+
+
+# # 249 rename 함수
+# # 바탕화면에 텍스트 파일을 하나 생성한 후 os 모듈의 rename 함수를 호출하여 해당 파일의 이름을 변경해보세요.
+# from hashlib import new
+# import os
+# old_name = os.path.join("C:\\Users\\User_name\\Desktop", "새 텍스트 문서.txt")
+# new_name = os.path.join("C:\\Users\\User_name\\Desktop", "바꾼 텍스트 문서.txt")
+# # os.rename(old_name, new_name)
+# os.rename(new_name, old_name)
+
+# import os
+# os.rename("C:/Users/User_name/Desktop/before.txt", "C:/Users/User_name/Desktop/after.txt")
+
+# # 248 os 모듈
+# # os 모듈의 getcwd 함수를 호출하여 현재 디렉터리의 경로를 화면에 출력해보세요.
+# import os
+# print(type(os.getcwd()), os.getcwd())
+
+
+# 247 모듈 임포트
+# 모듈을 임포트하는 4가지 방식에 대해 설명해보세요.
+# import를 통해 불러오는 방식
+# from ~ import를 통에 불러오는 방식
+# from ~ import * ~ 안에 있는 여러 함수나 클래스, 변수를 바로 가져오는 방식
+# import as xxx 모듈 이름이 너무 길 때 xxx로 
+
+# 이름이 충돌나는 경우가 있기 때문에, 필요에 따라서 import를 쓸지 from ~ import를 사용할지 결정해야 한다
+# 모듈 마다 임포트 하는 방식이 다른데, 대부분이 사용하는 사람들이 모듈을 임포트 하는 방식을 따라 사용하면 쉽게 코드를 가져다 쓸 수 있음
+# 모듈에 있는 도움말을 보고, 어떤 식으로 임포트를 하는지 확인해서 코딩하는게 좋다. 
+
+
+
+# # 246 sleep 함수
+# # time 모듈, datetime 모듈을 사용해서 1초에 한 번 현재 시간을 출력하는 코드를 작성하세요.
+# from datetime import datetime
+# from time import sleep
+# for i in range(10):
+#     print(datetime.now())
+#     sleep(1)
+
+
+# # 245 strptime
+# # datetime.datetime.strptime 메서드를 사용하면 문자열 형식의 시간을 datetime.datetime 타입의 시간 값으로 만들어줍니다. "2020-05-04"의 문자열을 시간 타입으로 변환해보세요.
+# from datetime import datetime
+# word = "2020-05-04"
+# time = datetime.strptime(word, '%Y-%m-%d')
+# print(type(time), time)
 
 
 # # 244 strftime

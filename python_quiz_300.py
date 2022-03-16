@@ -1,3 +1,35 @@
+# 258 클래스 메소드 - 2
+# 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 setInfo 메소드를 추가하세요.
+# >>> areum = Human("모름", 0, "모름")
+# >>> areum.setInfo("아름", 25, "여자")
+
+class Human:
+    def __init__(self, name, age, gender):
+        print("응애응애")
+        self.name = name
+        self.age = age
+        self.gender = gender
+    
+    def who(self):
+        print(self.name, self.age, self.gender)
+  
+    def setInfo(self, name, age, sex):
+            self.name = name
+            self.age = age
+            self.sex = sex
+
+
+areum = Human("불명", "미상", "모름")
+areum.who()      # Human.who(areum)
+
+areum.setInfo("아름", 25, "여자")
+areum.who()      # Human.who(areum)    
+
+# 클래스는 나중에 다시 복습할 것.
+
+
+
+
 # 257 클래스 메소드 - 1
 # 사람 (Human) 클래스에서 이름, 나이, 성별을 출력하는 who() 메소드를 추가하세요.
 

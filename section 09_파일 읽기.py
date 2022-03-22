@@ -91,3 +91,48 @@ with open('./Python_Basic/resource/review.txt', 'r') as f:
         line = f.readline()
 
 # 한 문장 단위로 읽어와서 전처리를 할 때는 read line을 사용하는게 좋다. 
+
+print("----------------------------------")
+print("----------------------------------")
+print("----------------------------------")
+print("----------------------------------")
+
+# 예제 6
+# readline을 좀 더 편하게 사용해보기
+# 어차피 이터러블 하다면 아래와 같이 사용해볼 수 있다.
+with open('./Python_Basic/resource/review.txt', 'r') as f:
+    contents = f.readlines()
+    print(contents)
+
+# 출력 결과
+#  ['The film, projected in the form of animation,\n', 'imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,\n', 'which eventually paves the path for gaining a fresh perspective on an age-old problem.\n', 'The story also happens to centre around two parallel characters, Shundi King and Hundi King,\n', 'who are twins, but they constantly fight over unresolved 
+# issues planted in their minds\n', 'by external forces from within their very own units.']
+
+# 마지막에 어떤 이스케이프 문자를 포함해서 리스트 형태로 가지고 있음. 모든 문장을 엔터를 기준으로 줄바꿈을 리스트 형태로 가지고 있는게 readlines.
+# 어차피 리스트가 넘어온다면 for문에서 바로 출력을 해볼 수 있다. 
+
+    for c in contents:
+        print(c, end= '*****') 
+
+#출력 결과
+# *****imparts the lesson of how wars can be eluded through reasoning and peaceful dialogues,
+# *****which eventually paves the path for gaining a fresh perspective on an age-old problem.
+# *****The story also happens to centre around two parallel characters, Shundi King and Hundi King,
+# *****who are twins, but they constantly fight over unresolved issues planted in their minds
+# *****by external forces from within their very own units.*****
+
+print("----------------------------------")
+print("----------------------------------")
+print("----------------------------------")
+print("----------------------------------")
+
+# 예제 7
+score = []
+with open ('./Python_Basic/resource/score.txt', 'r') as f:
+    for line in f:
+        score.append(int(line))
+    print(score)
+sum_score = sum(score)
+print(sum_score)
+print(len(score))
+print('{:6.1f}'.format(sum(score)/len(score)))

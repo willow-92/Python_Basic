@@ -136,3 +136,29 @@ sum_score = sum(score)
 print(sum_score)
 print(len(score))
 print('{:6.1f}'.format(sum(score)/len(score)))
+
+file_path = './Python_Basic/resource/text1.txt'
+# 파일 쓰기
+# 예제 1
+with open(file_path, 'w') as f:
+    f.write('Niceman!\n')
+
+# 예제 2
+with open(file_path, 'a') as f:
+    f.write('Goodman!')
+
+# 예제 3
+from random import randint
+
+with open('./Python_Basic/resource/text2.txt', 'w') as f:
+    for cnt in range(6):
+        f.write(str(randint(1, 50)))
+        f.write('\n')
+
+# 예제 4
+# writelines : 리스트를 파일로 저장하는 함수
+with open('./Python_Basic/resource/text3.txt', 'w') as f:
+    list = ['kim\n','park\n', 'cho\n' ]
+    f.writelines(list)
+
+# 예제 5 (프린트를 활용한 쓰기)

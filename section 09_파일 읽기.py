@@ -162,3 +162,12 @@ with open('./Python_Basic/resource/text3.txt', 'w') as f:
     f.writelines(list)
 
 # 예제 5 (프린트를 활용한 쓰기)
+with open('./Python_Basic/resource/text4.txt', 'w') as f:
+    print('Test Contents1!', file=f)
+    print('Test Contents2!', file=f)
+
+# 이미 리소스가 연결된 오픈함수에서 엘리아스를 준 f 인스턴스를 할당하면 콘솔에 찍히는 것이 아니라 
+# 해당 내용이 텍스트를 생성해서 파일에 들어간다. 
+# 로그를 찍을 때 파일로 로그성을 기록할 때 가끔 보이는 패턴
+
+# 보통 리드로 읽어와서 포문으로 반복해서 처리하는 패턴이 많이 보인다.

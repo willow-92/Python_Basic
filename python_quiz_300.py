@@ -1,31 +1,58 @@
+# 259 클래스 소멸자
+# 사람 (human) 클래스에 "나의 죽음을 알리지 말라"를 출력하는 소멸자를 추가하세요.
+
+# >>> areum = Human("아름", 25, "여자")
+# >>> del areum
+# 나의 죽음을 알리지 말라
+
+# class Human:
+#     def __init__(self, name, age, sex):
+#         self.name = name
+#         self.age = age
+#         self.sex = sex
+
+#     def __del__(self):
+#         print("나의 죽음을 알리지마라")
+
+#     def who(self):
+#         print("이름: {} 나이: {} 성별: {}".format(self.name, self.age, self.sex))
+
+#     def setInfo(self, name, age, sex):
+#         self.name = name
+#         self.age = age
+#         self.sex = sex
+
+# areum = Human("아름", 25, "여자")
+# del(areum)
+
 # 258 클래스 메소드 - 2
 # 사람 (Human) 클래스에 (이름, 나이, 성별)을 받는 setInfo 메소드를 추가하세요.
 # >>> areum = Human("모름", 0, "모름")
 # >>> areum.setInfo("아름", 25, "여자")
 
-class Human:
-    def __init__(self, name, age, gender):
-        print("응애응애")
-        self.name = name
-        self.age = age
-        self.gender = gender
+# class Human:
+#     def __init__(self, name, age, gender):
+#         print("응애응애")
+#         self.name = name
+#         self.age = age
+#         self.gender = gender
     
-    def who(self):
-        print(self.name, self.age, self.gender)
+#     def who(self):
+#         print(self.name, self.age, self.gender)
   
-    def setInfo(self, name, age, sex):
-            self.name = name
-            self.age = age
-            self.sex = sex
+#     def setInfo(self, name, age, sex):
+#             self.name = name
+#             self.age = age
+#             self.sex = sex
 
 
-areum = Human("불명", "미상", "모름")
-areum.who()      # Human.who(areum)
+# areum = Human("불명", "미상", "모름")
+# areum.who()      # Human.who(areum)
 
-areum.setInfo("아름", 25, "여자")
-areum.who()      # Human.who(areum)    
+# areum.setInfo("아름", 25, "여자")
+# areum.who()      # Human.who(areum)    
 
-# 클래스는 나중에 다시 복습할 것.
+# # 클래스는 나중에 다시 복습할 것.
 
 
 
@@ -85,11 +112,32 @@ areum.who()
 # areum = Human("아름", 25, "여성")
 # print(areum.name)
 
+# 사람 클래스가 앞에서 있었고. 안에는 비어 있었다.
+# 이 클래스로 부터 객체를 생성할 수 있는데, 클래스 이름을 적고 가로를 적어주면 "Human()" 메모리에 무엇인가가 생기고. 그것을 우리는 객체라고 부른다.
+# 메모리에 생성된 값을 "areum"이라는 변수로 바인딩. 
+# 휴먼이라는 변수가 비어있는 클래스 객체를 가르키고, 클래스 이름이 있고 괄호가 있으면 메모리에 또 무언가 비어있는 공간을 할당하게 된다. 이를 객체라고 한다. 
+# 객체 - 오브젝트 - 인스턴스
+# 클래스 객체, 다른 프로그램에서는 말이 안되지만, 파이썬에서 클래스 라는 것이 어떤 타입을 만들어 내는 진짜 클래스는 아니고, 타입이라는 클래스의 객체인데, 그러다 보니 메모리에 할당이 되는 것.
+# 어떤 타입을 만들어내는 입장에서 어떤 역할을 하기 때문에 그렇게 부르기는 하지만, 실제로 내부적으로는 어떤 메타 클래스라고 부르는, 클래스 위에 메타클래스라는게 있는게 그게 이름이 타입이고.
+# 그것의 객체임. 사실 클래스도 객체인데, 이렇게 말하면 헷갈리니까. 
+# 파이썬에서 클래스도 메모리에 무언가 할당이 된다 이렇게 일단 이해를 하면 된다. 
+# 이 클래스로부터 만들어진 객체도 다른 메모리 공간을 가진다.
+
+# 다시 돌아가서 areum = Human()
+# 이 생성된 공간을, 이 객체를 어떤 변수로 바인딩을 해줘야 한다.
+# 이걸 바인딩 하지 않으면 객체가 소멸된다.
+# 항상 객체를 생성했으면 변수로 바인딩을 해 주어야 한다. 
+#
+
 # # 252 클래스 정의
 # # 비어있는 사람 (Human) 클래스를 "정의" 해보세요.
-# class human:
+# class Human:
 #     pass
 
+# 클래스 정의를 할 때 클래스 이름은 관례적으로 대문자를 쓴다.
+# 휴먼 클래스를 정의하면 함수와 마찮가지로, 휴먼 클래스 안에 들여쓰기된 것이 아무것도 없기 때문에 비어 있고.
+# 클래스 이름이 객체를 가르키게 됨. 
+# 그 빈 공간 안에는 함수가 있을 수 있는데, 그 함수를 특별히 메소드라고 부른다. 
 
 # 251 클래스, 객체, 인스턴스
 # 클래스, 객체, 인스턴스에 대해 설명해봅시다.

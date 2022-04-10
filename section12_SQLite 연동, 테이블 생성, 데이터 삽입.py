@@ -34,5 +34,6 @@ print('nowDatetime :', nowDatetime)
 # Rollback -> 되돌리는 것. 삽입되기 이전으로 포인트를 정해서 되돌릴 수 있음. 
 # 커밋과 롤백은 알아두어야 함.
 
-#DB browser for SQL
+#DB browser for SQL 설치하기
+
 

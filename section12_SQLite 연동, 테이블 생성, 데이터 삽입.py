@@ -35,5 +35,19 @@ print('nowDatetime :', nowDatetime)
 # 커밋과 롤백은 알아두어야 함.
 
 #DB browser for SQL 설치하기
+# DB 생성 & Auto Commit(Rollback)
+# conn = sqlite3.connect('C:/Users/kyung.song/PycharmProjects/Python_Basic/resource/database/db')
+# 이렇게만 만들면 데이터베이스가 생성이 되기는 하지만, Autocommit가 아니다. 
+
+# conn.comit() # 이 명령어를 실행해야 반영이 됨
+# 오토 커밋을 하기 위해서는 아래와 같이 해야 함. 
+conn = sqlite3.connect('C:/Users/kyung.song/PycharmProjects/Python_Basic/resource/database.db', isolation_level=None)
+# DB browser for SQL에서 데이터베이스 불러오기
+# 잘 설정이 되었는지 확인해볼 것
+
+# cursor 
+# 커서의 획득은 C
+c = conn.cursor()
+print('Cursor Type: ', type(c) )
 
 

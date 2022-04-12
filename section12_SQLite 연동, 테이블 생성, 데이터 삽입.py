@@ -48,6 +48,8 @@ conn = sqlite3.connect('C:/Users/kyung.song/PycharmProjects/Python_Basic/resourc
 # cursor 
 # 커서의 획득은 C
 c = conn.cursor()
-print('Cursor Type: ', type(c) )
+print('Cursor Type: ', type(c))
 
+# 테이블 생성(Data Type : TEXT, NUMERIC, INTEGER, REAL, BLOB)
+c.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username text, email text, phone txst, website test, regdate test)")
 

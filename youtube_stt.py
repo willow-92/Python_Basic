@@ -108,7 +108,34 @@ def youtube_download(file_url):
     print('영상 다운로드 완료!')
 
 
-
+def setup_template(file_loc, blog_loc):
+    pag.hotkey('win', 'r')
+    pag.typewrite('file_loc')
+    pag.press('enter')  
+    time.sleep(0.5)
+    pag.hotkey('ctrl', 'a')
+    pag.hotkey('ctrl', 'c')
+    webbrowser.open("blog_loc")
+    time.sleep(2)
+    pag.moveTo(4012, 139, 0.5)
+    pag.click()
+    pag.moveTo(4012, 223, 0.5)
+    pag.click()
+    time.sleep(2)
+    pag.moveTo(3730, 186, 0.5)
+    pag.click()
+    pag.moveTo(3834, 135, 0.5)
+    pag.click()
+    pag.moveTo(3834, 228, 0.5)
+    pag.click()
+    pag.moveTo(2694, 337, 0.5)
+    pag.click()
+    time.sleep(0.5)
+    pag.hotkey('ctrl', 'v')
+    pag.moveTo(3783, 136, 0.5)
+    pag.click()
+    pag.moveTo(3783, 183, 0.5)
+    pag.click()
 
 
 
@@ -128,6 +155,6 @@ def youtube_download(file_url):
 # 4 = 4명
 # 5 = 5명 이상
 
-yt_url = 'https://youtu.be/-oeBNUXUQv0'
+yt_url = ''
 youtube_download(yt_url)
 stt(4, 1)

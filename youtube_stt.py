@@ -136,7 +136,36 @@ def setup_template(file_loc, blog_loc):
     pag.click()
     pag.moveTo(3783, 183, 0.5)
     pag.click()
-
+    
+    def download_stt(option):
+    webbrowser.open("https://clovanote.naver.com/home")
+    time.sleep(2)
+    pag.moveTo(3312, 270, 0.5)
+    pag.click()
+    pag.moveTo(4511, 157, 0.5)
+    pag.click()
+    pag.moveTo(4425, 201, 0.5)
+    pag.click()
+    time.sleep(2)
+    pag.moveTo(3391, 671, 0.5)
+    pag.click()
+    if option == 0:
+        pag.moveTo(3533, 666, 0.5)
+        pag.click()
+    pag.moveTo(3684, 715, 0.5)
+    pag.click()
+    pag.moveTo(3157, 50, 0.5)
+    pag.click()
+    pag.typewrite('D:/')
+    pag.press('enter')  
+    pag.moveTo(3487, 531, 0.5)
+    pag.click()
+    pag.typewrite('stt.txt')
+    pag.moveTo(3519, 609, 0.5)
+    pag.click() 
+    pag.moveTo(3605, 594, 0.5)
+    pag.click() 
+    pag.moveTo(4527, 1122, 0.5)
 
 
 # type :  대화형태

@@ -166,6 +166,44 @@ def setup_template(file_loc, blog_loc):
     pag.moveTo(3605, 594, 0.5)
     pag.click() 
     pag.moveTo(4527, 1122, 0.5)
+    
+    def download_clip_info(file_url):
+    yt = YouTube(file_url, on_progress_callback=on_progress)  # YouTube 객체 생성
+    video_streams = yt.streams
+    upload = str(f'{yt.publish_date}')[0:10].replace('_','.')
+    
+    # 블로그 템플릿 생성
+    with open('file_path', 'w') as f:
+
+        f.write(f'''<h2 data-ke-size="size26"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR'; font-size: 1.62em;">{yt.title} - {yt.author}[&#x1F440;제목]</span></h2>\n''')
+        f.write('''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';" 설명문 </span></p>\n''')
+        f.write('''<p data-ke-size="size18">&nbsp;</p>\n''')
+        f.write(f'<p data-ke-size=\"size18\"><span style=\"font-family: \'Noto Sans Demilight\', \'Noto Sans KR\';\">채널명 : {yt.author}</span></p>\n')
+        f.write(f'''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">제목 : {yt.title}</span></p>\n''')
+        f.write(f'''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">업로드일: {upload}</span></p>\n''')
+        f.write(f'''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">영상 길이: {str(yt.length // 60).zfill(2)}:{str(yt.length % 60).zfill(2)}</span></p>\n''')
+        f.write(f'''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">원본영상: <a href="{yt.watch_url}">{yt.watch_url}</a>&nbsp;</span></p>\n''')
+        f.write(f'''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">[요약]</span></p>\n''')
+        f.write('''<ul style="list-style-type: disc;" data-ke-list-type="disc">\n''')
+        f.write('''<li>&nbsp;</li>\n''')
+        f.write('''<li>&nbsp;</li>\n''')
+        f.write('''<li>&nbsp;</li>\n''')
+        f.write('''</ul>\n''')
+        f.write('''<p data-ke-size="size18"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">[내용 전문]</span></p>\n''')
+        f.write('''<div data-ke-type="moreLess" data-text-more="더보기" data-text-less="닫기"><a class="btn-toggle-moreless">더보기</a>\n''')
+        f.write('''<div class="moreless-content">\n''')
+        with open ('file_path', 'r', encoding='utf8') as data:
+            lines = data.readlines()
+            for i in lines:
+                print(i)
+                f.write(f'''<p data-ke-size="size16">{i}</p>''')
+
+    print(f'채널명: {yt.author}')
+    print(f'제목: {yt.title}')
+    print(f'업로드일:', upload)
+    print(f'영상 길이: {str(yt.length // 60).zfill(2)}:{str(yt.length % 60).zfill(2)}')
+    print(f'원본 영상: {yt.watch_url}')
+    print(f'영상 정보 저장 완료')
 
 
 # type :  대화형태

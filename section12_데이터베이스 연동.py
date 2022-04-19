@@ -82,9 +82,26 @@ c.execute("SELECT * FROM users")
 # DB 개념도 있지만, 외부 파일을 읽어오는 개념에서 커서의 역할이 중요하다고 볼 수 있다. 
 
 # 순회 1
-rows = c.fetchall()
-for row in rows:
-    print('retrieve1 >', row)
+# rows = c.fetchall()
+# for row in rows:
+#     print('retrieve1 >', row)
 
-for row in c.fetchall():
+# 순회 2 <- 더 많이 쓰임
+# for row in c.fetchall():
+#     print('retrieve2 >', row)
+
+# 순회 3
+for row in c.execute('SELECT * FROM users ORDER BY ID desc'):
     print('retrieve2 >', row)
+# 아이디를 기준으로
+# fetchall이 실행된 것과 같음
+# 코드 가독성이 떨어지는 단점이 있음. 쿼리문이 길어지면 for문이 길어짐
+# 그래서 보통은 순회 2번 방법을 많이 사용함
+
+print()
+
+# WHERE Retrive 1
+param1 = (3,)
+c.execute('SELECT * FROM users WHERE id=?', param1)
+print('param1', c.fetchone())
+print('param1', c.fetchall())

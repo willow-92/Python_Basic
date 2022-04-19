@@ -100,8 +100,14 @@ for row in c.execute('SELECT * FROM users ORDER BY ID desc'):
 
 print()
 
-# WHERE Retrive 1
-param1 = (3,)
-c.execute('SELECT * FROM users WHERE id=?', param1)
-print('param1', c.fetchone())
-print('param1', c.fetchall())
+# # WHERE Retrive 1
+# param1 = (3,)
+# c.execute('SELECT * FROM users WHERE id=?', param1)
+# print('param1', c.fetchone())
+# print('param1', c.fetchall()) # 데이터 없음
+
+# WHERE Retrive 2 #Syntax error 고쳐야 함
+param2 = 4
+c.execute('SELECT * FROM users WHERE id=?"%s"' % param2) #%s(문자), %f(float), %d(정수형)
+print('param2', c.fetchone())
+print('param2', c.fetchall()) # 데이터 없음

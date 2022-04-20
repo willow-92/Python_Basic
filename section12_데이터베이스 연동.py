@@ -90,9 +90,9 @@ c.execute("SELECT * FROM users")
 # for row in c.fetchall():
 #     print('retrieve2 >', row)
 
-# 순회 3
-for row in c.execute('SELECT * FROM users ORDER BY ID desc'):
-    print('retrieve2 >', row)
+# # 순회 3
+# for row in c.execute('SELECT * FROM users ORDER BY ID desc'):
+#     print('retrieve2 >', row)
 # 아이디를 기준으로
 # fetchall이 실행된 것과 같음
 # 코드 가독성이 떨어지는 단점이 있음. 쿼리문이 길어지면 for문이 길어짐
@@ -100,14 +100,14 @@ for row in c.execute('SELECT * FROM users ORDER BY ID desc'):
 
 print()
 
-# # WHERE Retrive 1
-# param1 = (3,)
-# c.execute('SELECT * FROM users WHERE id=?', param1)
-# print('param1', c.fetchone())
-# print('param1', c.fetchall()) # 데이터 없음
+# WHERE Retrive 1
+param1 = (3,)
+c.execute('SELECT * FROM users WHERE id=?', param1)
+print('param1', c.fetchone())
+print('param1', c.fetchall()) # 데이터 없음
 
-# WHERE Retrive 2 #Syntax error 고쳐야 함
+# WHERE Retrive 2 #Syntax error 고쳐야 함 -> 오타 났었음
 param2 = 4
-c.execute('SELECT * FROM users WHERE id=?"%s"' % param2) #%s(문자), %f(float), %d(정수형)
+c.execute(f'SELECT * FROM users WHERE id="{param2}"') #%s(문자), %f(float), %d(정수형)
 print('param2', c.fetchone())
 print('param2', c.fetchall()) # 데이터 없음

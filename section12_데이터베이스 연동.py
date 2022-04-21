@@ -106,8 +106,44 @@ c.execute('SELECT * FROM users WHERE id=?', param1)
 print('param1', c.fetchone())
 print('param1', c.fetchall()) # 데이터 없음
 
-# WHERE Retrive 2 #Syntax error 고쳐야 함 -> 오타 났었음
+# WHERE Retrive 2 #Syntax error 고쳐야 함 -> 오타 났었음 -> 은재님 수정본
+# param2 = 4
+# c.execute(f'SELECT * FROM users WHERE id="{param2}"') #%s(문자), %f(float), %d(정수형)
+# print('param2', c.fetchone())
+# print('param2', c.fetchall()) # 데이터 없음
+
+# WHERE Retrive 2
 param2 = 4
-c.execute(f'SELECT * FROM users WHERE id="{param2}"') #%s(문자), %f(float), %d(정수형)
+c.execute('SELECT * FROM users WHERE id="%s"' % param2) #%s(문자), %f(float), %d(정수형)
 print('param2', c.fetchone())
 print('param2', c.fetchall()) # 데이터 없음
+
+# WHERE Retrive 2
+c.execute('SELECT * FROM users WHERE id=:Id',{"Id":5})
+print('param3', c.fetchone())
+print('param3', c.fetchall()) # 데이터 없음
+
+# WHERE Retrieve4
+param4 = (3,5)
+c.execute("SELECT * FROM users WHERE id IN(?,?)", param4)
+print('param4', c.fetchall())
+
+# WHERE Retrieve5
+c.execute("SELECT * FROM users WHERE id IN('%d','%d')" % (3,4))
+print('param5', c.fetchall())
+
+# WHERE Retrieve6
+c.execute("SELECT * FROM users WHERE id=:id1 OR id=:id2", {"id1": 2, "id2": 5})
+print('param6', c.fetchall())
+
+# Dump 출력 -> 데이터베이스 백업
+# 데이터베이스의 인서트문이나 크리에이트문 등을 백업했다가 다른 컴퓨터에서 사용
+
+# Dump 출력
+with conn:
+    with open('C:/Users/kyung.song/PycharmProjects/Python_Basic/resource/dump.sql', 'w') as f:
+        for line in conn.iterdump():
+            f.write('%s\n' % line)
+        print('Dump Print Complete')
+
+# 데이터가 많아지면 덤프 파일이 기가단위. 그래서 데이터베이스 분할 설계를 잘 해야 함

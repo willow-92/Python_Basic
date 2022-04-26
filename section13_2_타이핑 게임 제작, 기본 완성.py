@@ -19,7 +19,7 @@ conn = sqlite3.connect('C:/Users/kyung.song/PycharmProjects/Python_Basic/resourc
 # Cursor 연결
 cursor = conn.cursor()
 
-cursor.execute("CREATE TABLE IF NOT EXISTS records(id INTEGER PRIMARY KEY AUTOINCREMENT, cor_cnt INTEGER, record text, regedate test)")
+cursor.execute("CREATE TABLE IF NOT EXISTS records(id INTEGER PRIMARY KEY AUTOINCREMENT, cor_cnt INTEGER, record text, regdate test)")
 
 # 전역변수를 스코프에서 선언
 words = [] #영어 단어 리스트(1000ro 로드)
@@ -45,8 +45,8 @@ while n <= 5:
     print()
 
     if str(q.strip()) == str(x).strip(): # 입력 확인(공백 제거)
-        print("Pass!")
         # 정답 소리 재생
+        print("Pass!")
         winsound.PlaySound('./Python_Basic/sound/sound_good.wav', winsound.SND_FILENAME)
         cor_cnt += 1
     else:
@@ -65,6 +65,11 @@ if cor_cnt >= 3:
     print("합격")
 else:
     print("불합격")
+
+
+# 기록 DB 삽입
+cursor.execute("INSERT INTO records('cor_cnt', 'record', 'regdate') VALUES (?, ?, ?)", (cor_cnt, et, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+
 
 # 수행 시간 출력
 print("게임 시간 : ", et, "초", "정답 개수 : {}".format(cor_cnt))

@@ -49,8 +49,8 @@ def scrape_news_list_page(response):
     # 태그 정보 문자열 저장
     root = lxml.html.fromstring(response.content)
 
-    for a in root.cssselect(''):
-        
+    for a in root.cssselect('api_list .api_item a.api'):
+        # 네이버 사이트 변경으로 다시 확인 필요
         pass
 
 

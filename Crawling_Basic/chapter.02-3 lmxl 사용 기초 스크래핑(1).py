@@ -18,7 +18,8 @@ def main():
 
 
     # 스크래핑 대상 URL
-    response = requests.get("https://www.naver.com") # Get 방식과 Post 방식이 있음
+    response = requests.get("https://news.naver.com/") # Get 방식과 Post 방식이 있음
+
 
     # 신문사 링크 리스트 획득
     # 직접 함수를 제작.
@@ -48,12 +49,22 @@ def scrape_news_list_page(response):
 
     # 태그 정보 문자열 저장
     root = lxml.html.fromstring(response.content)
+    # print(root)
+    # print(response.content)
 
-    for a in root.cssselect('api_list .api_item a.api'):
-        # 네이버 사이트 변경으로 다시 확인 필요
-        pass
+    # css selector install 할 것
+    for a in root.cssselect('.cjs_channel_card .cjs_ctitle._item_title a.cjs_ctitle_a'):
+    #     # 링크
+        url = a.get('href')
+        urls.append(url)
+    return urls
+
+
 
 
 # 스크래핑 시작
 if __name__ == "__main__":
     main()
+
+
+

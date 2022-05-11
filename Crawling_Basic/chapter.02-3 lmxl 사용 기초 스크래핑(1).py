@@ -69,7 +69,7 @@ import lxml.html
 # 주석 없이 코드를 다시 복사하여 작성해보기
 
 def main():
-    response = requests.get("https://news.naver.com/") 
+    response = requests.get("https://www.naver.com/") 
     urls = scrape_news_list_page(response)
 
     for url in urls:
@@ -79,8 +79,8 @@ def scrape_news_list_page(response):
     urls = []
     root = lxml.html.fromstring(response.content)
 
-# 실패. 추후 다시 확인 필요
-    for a in root.cssselect('.thumb_area .thumb_box._NM_NEWSSTAND_THUMB._NM_NEWSSTAND_THUMB_press_valid .popup_wrap > a.btn_popup'):
+# 다른 곳은 잘 스크래핑 됨
+    for a in root.cssselect('.list_theme .theme_item a.theme_info'):
         url = a.get('href')
         urls.append(url)
     return urls
@@ -89,6 +89,5 @@ def scrape_news_list_page(response):
 # 스크래핑 시작
 if __name__ == "__main__":
     main()
-
 
 

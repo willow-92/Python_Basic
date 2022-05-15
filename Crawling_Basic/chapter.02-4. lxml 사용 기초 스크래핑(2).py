@@ -3,9 +3,11 @@
 # lxml 사용 기초 스크랩핑(2)
 # pip install lxml, requests, cssselect
 
+from os import link
 from re import T
 import requests
 from lxml.html import fromstring, tostring
+import pprint
 # fromstring =  웹에서 스윙된 데이터를 스트링으로 바꿔주는 것
 # tostring = 중간에 제대로 되었는지 확인할 때 
 
@@ -38,6 +40,7 @@ def main():
     
     # 신문사 링크 딕셔너리 획득
     urls = scrape_news_list_page(response)
+    pprint.pprint(urls)
 
     # 딕셔너리 확인
     # print(urls)
@@ -53,33 +56,63 @@ def scrape_news_list_page(response):
     # 태그 정보 문자열 저장
     root = fromstring(response.content)
 
-# 신문사 URL 추출
-    # for a in root.xpath('//div[@class="thumb_area"]/div[@class="thumb_box _NM_NEWSSTAND_THUMB _NM_NEWSSTAND_THUMB_press_valid"]/div[@class="popup_wrap"]/a[@class="btn_popup"]'):
-    #     print(tostring(a, pretty_print=True))
+    news_name = []
+    news_link = []
 
+
+
+    print("=============================================")
+    print("신문사 이름 포함 엑스패스 가져오기")
+    print("=============================================")
+    print('')
 # 신문사 이름 추출
-    for b in root.xpath('//div[@class="thumb_area"]/div[@class="thumb_box _NM_NEWSSTAND_THUMB _NM_NEWSSTAND_THUMB_press_valid"]/a[@class="thumb"]'):
+    for a in root.xpath('//div[@class="thumb_area"]/div[@class="thumb_box _NM_NEWSSTAND_THUMB _NM_NEWSSTAND_THUMB_press_valid"]/a[@class="thumb"]'):
+        
         # a 구조 확인
         # print(a)
         
         # a 문자열 출력
-        print(tostring(b, pretty_print=True))
+
+        # print(tostring(a, pretty_print=True))
         
-        name, url = extract_contents(b)
+        name = extract_contents(a)
+        news_name.append(name)
+        
+        
         # 딕셔너리 삽입
-        urls[name] = url
+    
+
+    print("=============================================")
+    print("신문사 링크 포함 엑스패스 가져오기")
+    print("=============================================")
+    print('')
+
+    for b in root.xpath('//div[@class="thumb_area"]/div[@class="thumb_box _NM_NEWSSTAND_THUMB _NM_NEWSSTAND_THUMB_press_valid"]/div[@class="popup_wrap"]/a[@class="btn_popup"]'):
+        # print(tostring(b, pretty_print=True))
+
+        link = extract_link(b)
+        news_link.append(link)
+ 
+    for i in range(len(news_name)):
+        urls[news_name[i]] = news_link[i]
+
 
     return urls
+    
 
 def extract_contents(dom):
-    # 링크 주소
-    link = dom.get("href")
-
-    # 신문사 명
     name = dom.xpath('./img')[0].get('alt')
-    print(name)
+    return(name)
+
+
+def extract_link(dom):
+    link = dom.get("href")
+    return(link)
+    # print(link)
+
 
 # 스크래핑 시작
 if __name__ == "__main__":
     main()
+
 

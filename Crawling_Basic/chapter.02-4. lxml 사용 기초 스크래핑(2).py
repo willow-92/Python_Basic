@@ -11,6 +11,7 @@ import pprint
 # fromstring =  웹에서 스윙된 데이터를 스트링으로 바꿔주는 것
 # tostring = 중간에 제대로 되었는지 확인할 때 
 
+import os
 
 
 # 세션을 바꾸는 코드
@@ -41,6 +42,8 @@ def main():
     # 신문사 링크 딕셔너리 획득
     urls = scrape_news_list_page(response)
     pprint.pprint(urls)
+    with open('./Python_Basic/Crawling_Basic./scrap.txt', 'w') as f:
+        f.writelines(urls)
 
     # 딕셔너리 확인
     # print(urls)
@@ -95,7 +98,6 @@ def scrape_news_list_page(response):
  
     for i in range(len(news_name)):
         urls[news_name[i]] = news_link[i]
-
 
     return urls
     

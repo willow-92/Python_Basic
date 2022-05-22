@@ -5,6 +5,9 @@
 
 import urllib.request
 from urllib.parse import urlparse
+from urllib.parse import urlencode
+
+from numpy import ogrid
 
 # 기본 요청 1(encar)
 url = "http://www.encar.com/"
@@ -29,3 +32,42 @@ print('parse : {}'.format(urlparse('https://www.encar.co.kr?test=test')))
 
 # 수신 받아보는 예제
 # 기본 요청2(ipify)
+api = "https://api.ipify.org"
+print(api)
+
+# GET 방식 파라미터
+values = {
+    'format' : 'text' #jsonp, json, text
+}
+print('before param : {}'.format(values))
+
+params = urlencode(values)
+print('after param : {}'.format(params))
+
+# 딕셔너리 형태를 자동으로 인코딩 해서 바꿔줌
+
+# 요청 URL 생성
+URL = api + "?" + params
+print("요청 URL = {}".format(URL))
+# format을 다양한 형태로 바꿔서 출력해보는 연습도 할 것
+# txt로 보내면 ip 주소만 리턴함
+# 이런 것들은 웹에서 수신하고 발신할 때 데이터의 규약, 데이터의 형식
+# 주로 제이슨을 많이 사용함
+
+# 수신 데이터 읽기
+data = urllib.request.urlopen(URL).read()
+
+# 수신 데이터 디코딩
+text = data.decode('UTF-8')
+print('response : {}'.format(text))
+
+
+# chapter1 에서 썻던 urlopen에 대해서 자세하게 배웠음
+# 중요한 것은 urlparse 함수를 이용해서 url 형태를 파싱해서 도메인 부분, 프로토콜 부분, 쿼리 부분을 분리하는 것을 파즈가 해줬음
+# 실질적으로 서비스를 제공한데 요청했고, 원하는 딕셔너리 형태를 URL 인코딩을 해서 URL을 만들어서 보내고
+# 수신 데이터를 디코딩 해서 출력 해줬음
+# 스크래핑은 이게 기본적인 흐름
+# 요청하고 수신해서 원하는 데이터가 왔는지를 확인하면 됨
+# 그 다음에 그 데이터를 DB에 저장하든, 텍스트 파일로 저장해서 원하는 곳에 사용하면 됨. 
+
+# 짧은 예제이지만, 위에서부터 아래로 보면 하나의 큰 흐름으로 볼 수 있음. 

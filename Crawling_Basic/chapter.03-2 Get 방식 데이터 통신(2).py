@@ -22,6 +22,7 @@
 
 import urllib.request
 import urllib.parse
+import pprint
 
 # 행정 안전부 : https://www.mois.go.kr
 # 행정 안전부 RSS API URL
@@ -33,4 +34,38 @@ for num in [1001, 1012, 1013, 1014]:
     params.append(dict(ctxCd=num))
 
 # 중간 확인
-print(params)
+# print(params)
+
+# 연속해서 4회 요청
+
+for c in params:
+    # 파라미터 출력
+    # print(c)
+    # URL 인코딩
+    param = urllib.parse.urlencode(c)
+    
+    # URL 완성
+    url = API + "?" + param
+
+    # URL 출력
+    print("url :", url)
+
+    # 요청
+    res_data = urllib.request.urlopen(url).read()
+    # pprint.pprint(res_data) # 디코딩이 안 된 상태. 알아볼 수 없음.
+
+    # 수신 후 디코딩
+    contents = res_data.decode("utf-8")
+
+    # 출력
+    print("")
+    print("="*150)
+    print("")
+    print(contents)
+
+# 데이터를 가져왔으면 이 컨텐츠를 가지고 파일에 써도 되고. 
+# 나중에 뷰티풀스프로 파싱을 해서 제목만 가져다가 디비에 넣어도 되고.
+# 엑셀 저장을 해도 되고. 
+# 가져 오면 일단 반은 성공하는 것. 
+# 가져와서 내 컴퓨터에 있기 때문에.
+

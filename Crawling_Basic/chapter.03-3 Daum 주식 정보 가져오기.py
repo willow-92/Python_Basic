@@ -71,3 +71,30 @@
 # 다음 주식 정보 가져오기
 
 import json
+import urllib.request as req
+from fake_useragent import UserAgent
+
+
+# Faje Header 저보 (가상으로 User-agent 생성)
+ua = UserAgent()
+# print(ua.ie)
+# print(ua.msie)
+# print(ua.chrome)
+# print(ua.safari)
+for i in range(10):
+    print(ua.random)    
+
+# 헤더 정보
+headers = {
+    'User-agent' : ua.ie,
+    'refferer' : 'https://finance.daum.net/'
+}
+
+# 이 규칙을 찾았으면 스크래핑은 끝난 것. 
+# 그러나 이 과정이 핵심임
+
+# 다음 주식 요청 URL
+url = 'https://finance.daum.net/api/search/ranks?limit=10'
+
+# 요청
+res = req.urlopen(req.Request(url, headers=headers))

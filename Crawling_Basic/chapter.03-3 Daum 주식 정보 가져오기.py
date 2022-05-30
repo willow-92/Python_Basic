@@ -86,7 +86,7 @@ for i in range(10):
 
 # 헤더 정보
 headers = {
-    'User-agent' : ua.ie,
+    'User-agent' : ua.random,
     'refferer' : 'https://finance.daum.net/'
 }
 
@@ -97,4 +97,6 @@ headers = {
 url = 'https://finance.daum.net/api/search/ranks?limit=10'
 
 # 요청
-res = req.urlopen(req.Request(url, headers=headers))
+res = req.urlopen(req.Request(url, headers=headers)).read().decode('UTF-8')
+
+# 해결방법 고민해볼 것. 

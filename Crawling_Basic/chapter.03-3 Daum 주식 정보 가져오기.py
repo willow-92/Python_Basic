@@ -81,14 +81,16 @@ ua = UserAgent()
 # print(ua.msie)
 # print(ua.chrome)
 # print(ua.safari)
-for i in range(10):
-    print(ua.random)    
+# for i in range(10):
+#     print(ua.random)    
 
 # 헤더 정보
 headers = {
     'User-agent' : ua.random,
     'refferer' : 'https://finance.daum.net/'
 }
+
+print(headers)
 
 # 이 규칙을 찾았으면 스크래핑은 끝난 것. 
 # 그러나 이 과정이 핵심임

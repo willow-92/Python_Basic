@@ -72,6 +72,7 @@
 
 import json
 import urllib.request as req
+import requests
 from fake_useragent import UserAgent
 
 
@@ -85,12 +86,12 @@ ua = UserAgent()
 #     print(ua.random)    
 
 # 헤더 정보
-headers = {
-    'User-agent' : ua.random,
-    'refferer' : 'https://finance.daum.net/'
-}
+# headers = {
+#     'User-agent' : ua.random,
+#     'refferer' : 'https://finance.daum.net/'
+# }
 
-print(headers)
+# print(headers)
 
 # 이 규칙을 찾았으면 스크래핑은 끝난 것. 
 # 그러나 이 과정이 핵심임
@@ -99,6 +100,108 @@ print(headers)
 url = 'https://finance.daum.net/api/search/ranks?limit=10'
 
 # 요청
-res = req.urlopen(req.Request(url, headers=headers)).read().decode('UTF-8')
+# res = req.urlopen(req.Request(url, headers=headers)).read().decode('UTF-8')
+# 동작하지 않음 해결방법 고민해볼 것. 
 
-# 해결방법 고민해볼 것. 
+# urlopen으로 시도하는 대신 get 방식으로 재시도
+# res = requests.get(url, headers=headers)
+
+# 구글링 중 referer 정보를 다른 것으로 넣는 글을 확인함
+# referer를 수정하여 재시도
+
+# headers = {
+#     'User-agent' : ua.random,
+#     'refferer' : 'http://http://finance.daum.net/quotes/A048410#home'
+# }
+
+# res = req.urlopen(req.Request(url, headers=headers)).read().decode('UTF-8')
+# urlopen으로는 여전히 안됨
+# get 방식으로 재시도
+# res = requests.get(url, headers=headers)
+# if requests.status_codes == requests.codes.ok:
+#     print("접속 성공")
+
+# else:
+#     print("접속 실패")
+
+# get 방식으로도 안됨
+# referer 문제가 아닌 것으로 보여짐
+
+# User agent를 강제로 지정해주는 방식으로 다시 시도
+
+
+# headers = {
+#     'User-agent' : 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36',
+#     'refferer' : 'http://http://finance.daum.net/quotes/A048410#home'
+# }
+# res = req.urlopen(req.Request(url, headers=headers)).read().decode('UTF-8')
+# res = requests.get(url, headers=headers)
+# if requests.status_codes == requests.codes.ok:
+#     print("접속 성공")
+
+# else:
+#     print("접속 실패")
+
+# user agent와 상관 없음
+# 다른 사람이 짜 놓은 코드로 시도
+
+# import requests
+# import json
+
+# custom_header = {
+#     'referer' : 'http://http://finance.daum.net/quotes/A048410#home',
+#     'user-agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'  }
+
+
+# def get_data() :
+#     result = []
+#     url = "https://finance.daum.net/api/search/ranks?limit=10" # 상위 10개 기업의 정보를 얻는 API url을 작성
+#     req = requests.get(url, headers = custom_header)
+    
+#     if req.status_code == requests.codes.ok:    
+#         print("접속 성공")
+#         # API에 접속에 성공하였을 때의 logic을 작성
+#         # JSON 데이터의 원하는 부분만 불러와 result에 저장
+#         # stock_data = json.loads(req.text)
+        
+#         # for d in stock_data["data"]:
+#         #     result.append([d['rank'], d['name'], d['tradePrice']])
+        
+#     else:
+#         print("접속 실패")
+
+# get_data()
+
+# 인터넷에 있는 코드는 성공. 여기에 맞춰서 코드 수정
+
+# headers = {
+#     'refferer' : 'http://http://finance.daum.net/quotes/A048410#home',
+#     'User-agent' : 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36',
+# }
+# req = requests.get(url, headers=headers)
+# if requests.status_codes == requests.codes.ok:
+#     print("접속 성공")
+
+# else:
+#     print("접속 실패")
+
+# 함수 안에서는 돌아가고, 그냥 하면 안 돌아가는데, 원인을 확인해 볼 필요가 있음.
+# 기존에 수업 들으면서 짰던 코드도 함수 안에서 구현하면 무언가 달라지는 것이 있는지 확인해볼 것
+# refferer 스펠링이 틀린 것을 이제 확인함. 수정해서 다시 시도
+
+headers = {
+    'referer' : 'http://http://finance.daum.net/quotes/A048410#home',
+    'User-agent' : 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36',
+}
+res = requests.get(url, headers=headers)
+if requests.status_codes == requests.codes.ok:
+    print("접속 성공")
+
+else:
+    print("접속 실패")
+
+res = req.urlopen(req.Request(url, headers=headers)).read().decode('UTF-8')
+print(res)
+# 성공함!
+# 인터넷에 있는 코드는 함수 안에 넣지 않아서 발생하는 에러로 보여짐
+# 기존 수업때 배운 코드로는 성공. referer의 스펠링이 틀린 것이 원인으로 보여짐

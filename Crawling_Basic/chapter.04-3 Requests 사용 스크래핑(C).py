@@ -32,4 +32,21 @@ import requests
 s = requests.session()
 
 # 예제 1
-r =s.get('https://')
+r =s.get('https://api.github.com/events')
+
+# 수신상태 체크 -> 실패하면 예외처리까지 해줌
+r.raise_for_status()
+
+# 출력
+# print(r.text)
+
+# 예제 2 -> 쿠키정보를 디테일하게 할 때
+# 쿠기설정
+jar = requests.cookies.RequestsCookieJar()
+
+# 쿠키 삽입
+jar.set('name', 'niceman', domain = "httpbin.org", path='/cookies')
+
+# 요청
+r = s.get('http://httpbin.org/cookies', cookies = jar)
+print(r.text)

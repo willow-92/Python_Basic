@@ -27,6 +27,7 @@
 # 자원을 이름(자원의 표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미한다.
 
 import requests
+import pprint
 
 # 세션 활성화
 s = requests.session()
@@ -49,4 +50,15 @@ jar.set('name', 'niceman', domain = "httpbin.org", path='/cookies')
 
 # 요청
 r = s.get('http://httpbin.org/cookies', cookies = jar)
-print(r.text)
+
+# 출력
+# print(r.text)
+
+# 예제3
+r = s.get('https://github.com', timeout=5)
+
+# 출력
+# pprint.pprint(r.text)
+
+# 예제4
+r = s.post('http://httpbin.org/post', data={'id':'test7', 'pw': '111'}, )

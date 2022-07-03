@@ -3,31 +3,31 @@ import random
 random.seed()
 
 now = dt.datetime.now()
-company =['sk.y', 'ss.p', 'ej.y', 'eb.c', 'k.s', 'sj.k', 'jg.i', 'wr.b', '양희영']
-day = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일']
-num_list = []
-# print(now.weekday())
-random.seed()
-for i in range(9):
-    num = random.randint(0,8)
-    while num in num_list :
-        num = random.randint(0,8)
-    num_list.append(num)
-    print(i)
+# company =['sk.y', 'ss.p', 'ej.y', 'eb.c', 'k.s', 'sj.k', 'jg.i', 'wr.b', 'hy.y']
 
-# print(num_list)
+def select():
+    company =['박상선', '최은배', '송경', '강세종', '임정근', '봉우리', '양희영', '서경원']
+    day = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일']
+    num_list = []
 
-p1 = num_list[0:3]
-p2 = num_list[3:6]
-p3 = num_list[6:9]
+    for i in range(len(company)):
+        num = random.randint(0,len(company)-1)
+        while num in num_list :
+            num = random.randint(0,len(company)-1)
+        num_list.append(num)
+    print(num_list)
 
-print(p1)
-print(p2)
-print(p3)
 
-print([company[p1[0]]], print([company[p1[1]]]), print([company[p1[2]]]))
-# print([p1[1]])
-# print([p1[2]])
 
-# print(company[p1][1])
-# print(company[p1][2])
+    p1 = num_list[0:4]
+    p2 = num_list[4:]
+    # p3 = num_list[6:9]
+
+    print(company[p1[0]], company[p1[1]], company[p1[2]], company[p1[3]])
+    print(company[p2[0]], company[p2[1]], company[p2[2]], company[p2[3]])
+    # print(company[p3[0]], company[p3[1]], company[p3[2]])
+   
+
+
+select()
+

@@ -28,6 +28,8 @@ print(soup)
 print("done")
 
 # 이어서 작업할 것
-# 참조 : `[';lh\://mokeya.tistory.com/106
+# 참조 :https://mokeya.tistory.com/106
+# 어떤 사이트를 긁어와야 하는지 부터 확인할 것
+# 대기
 
 

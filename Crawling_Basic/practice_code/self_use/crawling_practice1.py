@@ -3,6 +3,7 @@ print("importing modules")
 from asyncio.base_subprocess import BaseSubprocessTransport
 from collections import Counter
 import requests
+from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt
 import jpype
@@ -12,12 +13,21 @@ from konlpy.utils import pprint
 import nltk
 print("import finished")
 
+ua = UserAgent()
+
+headers = {
+    'User-agent' : ua.random,
+    'refferer' : 'https://www.linkedin.com/jobs/view'
+}
+
 print("requests url")
 url = "https://www.linkedin.com/jobs/view/3150157200"
-page = requests.get(url)
+page = requests.get(url, headers=headers)
 html = page.text
 
+
 print(html)
+
 
 # print("start parsing")
 # soup = BeautifulSoup(html, 'html.parser')

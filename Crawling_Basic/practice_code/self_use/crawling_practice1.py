@@ -13,27 +13,33 @@ from konlpy.utils import pprint
 import nltk
 print("import finished")
 
-ua = UserAgent()
 
+
+# fake useragent 설정
+ua = UserAgent()
 headers = {
     'User-agent' : ua.random,
     'refferer' : 'https://www.linkedin.com/jobs/view'
 }
 
+
+# html 가져오기
 print("requests url")
 url = "https://www.linkedin.com/jobs/view/3150157200"
 page = requests.get(url, headers=headers)
 html = page.text
-
+with open("C:/Users/admin/OneDrive/바탕 화면/html.txt", 'w', encoding='utf-8') as f:
+    f.write(html)
 
 # print(html)
 
 
+# 원하는 정보 가져오기
 print("start parsing")
 soup = BeautifulSoup(html, 'html.parser')
 title = soup.find('h1').string
-company = soup.find('span', class_='jobs-unified-top-card__company-name')
-content = soup.find('div', class_='jobs-box__html-content jobs-description-content__text t-14 t-normal jobs-description-content__text--stretch')
+company = soup.find('a', class_='topcard__org-name-link topcard__flavor--black-link').string.strip()
+content = soup.find('div', class_='show-more-less-html__markup show-more-less-html__markup--clamp-after-5')
 body_string = ''
 print(title)
 print(company)

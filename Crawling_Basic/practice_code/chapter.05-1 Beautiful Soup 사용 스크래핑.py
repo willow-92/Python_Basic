@@ -26,3 +26,9 @@ html = """
 </html>
 """
 
+
+# 예재1(Beautifulsoup 기초)
+# bs4 초기화
+soup = BeautifulSoup(html, 'html.parser')
+print(type(soup))
+print('prettify', soup.pretify)

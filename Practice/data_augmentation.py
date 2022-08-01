@@ -7,10 +7,8 @@
 # 결과 = SCF, 부동산PF상품, 아파트담보상품
 
 # 필요 라이브러리 불러오기
-from dataclasses import field
 import random
-import csv
-import pprint
+import re
 
 # 리스트 만들기
 Invest_Type = ["안정지향", "수익지향", "균형지향"]
@@ -24,7 +22,7 @@ i = 0
 dct_arr = []
 
 # 칼럼명 지정
-labels = str(['id', 'invest', 'age', 'price', 'household', 'result']).strip('[').strip(']')
+labels =re.sub("[\[\]']", '', str(['id', 'invest', 'age', 'price', 'household', 'result']))
 
 
 # 딕셔너리 형태로 데이터 저장하여 CSV로 만들기
@@ -39,7 +37,10 @@ with open ('c://Python_Projects/Python_Basic/Practice/data_aumentation.csv', 'w'
             labels[4] : household_situation[random.randrange(0,2)],
             labels[5] : recommend_result[random.randrange(0,3)]  
         }
-        f.write((list(recommend_dict.values())).strip('[').strip(']') + '\n')
+        data = re.sub("[\[\]']", '', str(list(recommend_dict.values()))) + '\n'
+        f.write(data)
+print('done')
+        # print(data)
 
 # 후처리 추가할 것
 

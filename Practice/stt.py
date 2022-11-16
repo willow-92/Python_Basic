@@ -19,8 +19,8 @@ tp_y = [605, 635, 665, 605, 635, 665]
 
 def stt ():
     # mp3 변환
-    base_dir = 'C:/Users/kyung.song/PycharmProjects/youtube_download/'
-    mp4_file = base_dir + "videoplayback.mp4"
+    base_dir = 'C:/Python_Projects/sources/'
+    mp4_file = base_dir + "input.mp4"
     mp3_file = base_dir + "audio.mp3"
     cmd = "ffmpeg -i {} -vn {}".format(mp4_file, mp3_file)
     os.system(cmd)

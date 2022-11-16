@@ -22,25 +22,27 @@ i = 0
 dct_arr = []
 
 # 칼럼명 지정
-labels =re.sub("[\[\]']", '', str(['id', 'invest', 'age', 'price', 'household', 'result']))
+labels =['id', 'invest', 'age', 'price', 'household', 'result']
+
 
 
 # 딕셔너리 형태로 데이터 저장하여 CSV로 만들기
 with open ('c://Python_Projects/Python_Basic/Practice/data_aumentation.csv', 'w', encoding='utf-8') as f: 
-    f.write(labels+'\n')
+    f.write(re.sub("[\[\]']", '', str(labels)))
     for i in range(10):
         recommend_dict = {
-            labels[0] : i,
+            labels[0] : int(i),
             labels[1] : Invest_Type[random.randrange(0, 2)],
             labels[2] : random.randrange(20,100),
             labels[3] : random.randrange(1000, 9999),
             labels[4] : household_situation[random.randrange(0,2)],
             labels[5] : recommend_result[random.randrange(0,3)]  
         }
+        # print(recommend_dict)
         data = re.sub("[\[\]']", '', str(list(recommend_dict.values()))) + '\n'
-        f.write(data)
+        # f.write(data)
+        print(data)
 print('done')
-        # print(data)
 
 # 후처리 추가할 것
 

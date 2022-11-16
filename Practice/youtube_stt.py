@@ -222,6 +222,6 @@ def download_clip_info(file_url):
 # 4 = 4명
 # 5 = 5명 이상
 
-yt_url = 'https://youtu.be/-xuupkSvE30'
+yt_url = 'youtube.com/watch?v=KqzIpzNNqQY'
 youtube_download(yt_url)
 # stt(4, 1)
